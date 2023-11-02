@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/media/videos/gram-schmidt/480p15/partial_movie_files/ThreeDCameraIllusionRotation/1472636581_3508729226_4211802297.mp4'
