@@ -2706,7 +2706,7 @@ class DotProdRectangle(MovingCameraScene, ProjectionVectorScene):
             .set_color(vec_c_color)\
             .add_background_rectangle()
 
-        ba_text = Tex("senkrechte Projektion \\\\ von ", "$\\vec{b}$", " auf ", "$\\vec{a}$")\
+        ba_text = Tex("Proyección del vector \\\\", "$\\vec{b}$", " sobre ", "$\\vec{a}$")\
             .next_to(ba, RIGHT)\
             .shift(0.75*DOWN)\
             .set_color_by_tex_to_color_map({"\\vec{a}": vec_a_color, "\\vec{b}": vec_b_color})\
@@ -2785,7 +2785,7 @@ class DotProdRectangle(MovingCameraScene, ProjectionVectorScene):
                 .next_to(vec.get_end(), direction = DL)\
                 .shift(0.25*DOWN)
             for tex, color, vec in zip(
-                ["Vektor $\\vec{a}$", "Projektionsvektor $\\vec{b}_{\\vec{a}}$"], 
+                ["Vector $\\vec{a}$", "Proyección $\\vec{b}_{\\vec{a}}$"], 
                 [vec_a_color, vec_c_color], 
                 [self.veca, self.pro_vec]
             )

@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example/480p15/partial_movie_files/DotProdRectangle/2109555761_2559461702_1644711.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example/480p15/partial_movie_files/DotProdRectangle/2062597110_649968270_749799195.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example/480p15/partial_movie_files/DotProdRectangle/2062597110_3493041802_630943798.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example/480p15/partial_movie_files/DotProdRectangle/2062597110_4238259904_791631536.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example/480p15/partial_movie_files/DotProdRectangle/4239835760_3493041802_1669849683.mp4'
