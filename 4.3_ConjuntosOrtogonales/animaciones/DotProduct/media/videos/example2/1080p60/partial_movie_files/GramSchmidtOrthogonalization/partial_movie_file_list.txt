@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/GramSchmidtOrthogonalization/450974505_3657100377_285981832.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/GramSchmidtOrthogonalization/34786186_2839631542_2737059340.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/GramSchmidtOrthogonalization/34786186_3018834667_3257048264.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/GramSchmidtOrthogonalization/34786186_2839631542_3124874116.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/GramSchmidtOrthogonalization/34786186_4244462707_777020852.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/GramSchmidtOrthogonalization/34786186_2839631542_3215038131.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/GramSchmidtOrthogonalization/34786186_2559461702_722767427.mp4'

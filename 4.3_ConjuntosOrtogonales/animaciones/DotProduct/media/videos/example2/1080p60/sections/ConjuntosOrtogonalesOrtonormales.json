@@ -1,0 +1,35 @@
+[
+    {
+        "name": "B",
+        "type": "presentation.normal",
+        "video": "ConjuntosOrtogonalesOrtonormales_0000.mp4",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60/1",
+        "duration": "16.000000",
+        "nb_frames": "960"
+    },
+    {
+        "name": "B.1",
+        "type": "presentation.normal",
+        "video": "ConjuntosOrtogonalesOrtonormales_0001.mp4",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60/1",
+        "duration": "12.000000",
+        "nb_frames": "720"
+    },
+    {
+        "name": "B.2",
+        "type": "presentation.normal",
+        "video": "ConjuntosOrtogonalesOrtonormales_0002.mp4",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60/1",
+        "duration": "6.000000",
+        "nb_frames": "360"
+    }
+]

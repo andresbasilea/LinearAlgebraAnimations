@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_3085143430_638319907.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_1479978513_2345242949.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_3855671173_416088082.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_2839631542_352349970.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_2200787244_3383295379.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_1701562022_2329589588.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_1720760363_1006496037.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/CoordenadasBaseOrtogonal/34786186_2839631542_1646251515.mp4'

@@ -1,0 +1,35 @@
+[
+    {
+        "name": "A",
+        "type": "presentation.normal",
+        "video": "CoordenadasBaseOrtogonal_0000.mp4",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60/1",
+        "duration": "7.000000",
+        "nb_frames": "420"
+    },
+    {
+        "name": "A.2",
+        "type": "presentation.normal",
+        "video": "CoordenadasBaseOrtogonal_0001.mp4",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60/1",
+        "duration": "6.000000",
+        "nb_frames": "360"
+    },
+    {
+        "name": "A.3",
+        "type": "presentation.normal",
+        "video": "CoordenadasBaseOrtogonal_0002.mp4",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60/1",
+        "duration": "8.000000",
+        "nb_frames": "480"
+    }
+]

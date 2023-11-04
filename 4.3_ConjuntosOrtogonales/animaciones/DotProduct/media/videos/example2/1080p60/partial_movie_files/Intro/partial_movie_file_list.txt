@@ -2,4 +2,5 @@
 file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/Intro/1917512976_2711526363_1240453128.mp4'
 file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/Intro/3215024799_1191337004_471191519.mp4'
 file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/Intro/3215024799_711324468_141495306.mp4'
-file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/Intro/3215024799_1530829042_1111667096.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/Intro/3215024799_2097424886_2458311651.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/Intro/3215024799_1530829042_2736382204.mp4'

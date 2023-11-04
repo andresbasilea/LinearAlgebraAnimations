@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/ConjuntosOrtogonalesOrtonormales/34786186_3394050955_3469818787.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/ConjuntosOrtogonalesOrtonormales/34786186_2402524520_1071618013.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/ConjuntosOrtogonalesOrtonormales/34786186_1492095064_979519806.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/1080p60/partial_movie_files/ConjuntosOrtogonalesOrtonormales/34786186_2285157398_4217290758.mp4'
