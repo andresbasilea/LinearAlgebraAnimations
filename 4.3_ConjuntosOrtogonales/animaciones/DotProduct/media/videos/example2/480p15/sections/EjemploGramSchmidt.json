@@ -1,0 +1,90 @@
+[
+    {
+        "name": "PlanteamientoProblema",
+        "type": "presentation.normal",
+        "video": "EjemploGramSchmidt_0000.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "5.000000",
+        "nb_frames": "75"
+    },
+    {
+        "name": "ComienzaGramSchmidt",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0001.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "6.000000",
+        "nb_frames": "90"
+    },
+    {
+        "name": "ResolucionEjercicio.1",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0002.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "4.000000",
+        "nb_frames": "60"
+    },
+    {
+        "name": "ResolucionEjercicio.2",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0003.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "7.800000",
+        "nb_frames": "117"
+    },
+    {
+        "name": "ResolucionEjercicio.3",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0004.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "4.800000",
+        "nb_frames": "72"
+    },
+    {
+        "name": "ResolucionEjercicio.4",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0005.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "4.000000",
+        "nb_frames": "60"
+    },
+    {
+        "name": "proyeccionYResta",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0006.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "4.000000",
+        "nb_frames": "60"
+    },
+    {
+        "name": "mostrarVectorResta",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0007.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "16.000000",
+        "nb_frames": "240"
+    }
+]

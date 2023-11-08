@@ -1,0 +1,79 @@
+[
+    {
+        "name": "A",
+        "type": "presentation.normal",
+        "video": "CoordenadasBaseOrtogonal_0000.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "7.000000",
+        "nb_frames": "105"
+    },
+    {
+        "name": "A.2",
+        "type": "presentation.normal",
+        "video": "CoordenadasBaseOrtogonal_0001.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "6.000000",
+        "nb_frames": "90"
+    },
+    {
+        "name": "A.3",
+        "type": "presentation.normal",
+        "video": "CoordenadasBaseOrtogonal_0002.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "7.000000",
+        "nb_frames": "105"
+    },
+    {
+        "name": "A.4",
+        "type": "presentation.normal",
+        "video": "CoordenadasBaseOrtogonal_0003.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "13.000000",
+        "nb_frames": "195"
+    },
+    {
+        "name": "A.5",
+        "type": "default.normal",
+        "video": "CoordenadasBaseOrtogonal_0004.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "2.000000",
+        "nb_frames": "30"
+    },
+    {
+        "name": "A.6",
+        "type": "default.normal",
+        "video": "CoordenadasBaseOrtogonal_0005.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "2.000000",
+        "nb_frames": "30"
+    },
+    {
+        "name": "A.7",
+        "type": "default.normal",
+        "video": "CoordenadasBaseOrtogonal_0006.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "4.000000",
+        "nb_frames": "60"
+    }
+]

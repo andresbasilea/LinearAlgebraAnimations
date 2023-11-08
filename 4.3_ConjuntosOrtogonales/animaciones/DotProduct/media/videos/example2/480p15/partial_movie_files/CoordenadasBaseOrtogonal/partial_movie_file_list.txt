@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/480p15/partial_movie_files/CoordenadasBaseOrtogonal/2201830969_702245075_707224710.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/480p15/partial_movie_files/CoordenadasBaseOrtogonal/2201830969_2839631542_2869854688.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/480p15/partial_movie_files/CoordenadasBaseOrtogonal/2201830969_2143681165_3990053739.mp4'
+file 'file:C:/Users/Andres/Documents/ESTUDIO/ALGEBRALINEAL/PRESENTACIONES/4.3_ConjuntosOrtogonales/animaciones/DotProduct/media/videos/example2/480p15/partial_movie_files/CoordenadasBaseOrtogonal/2201830969_2839631542_1026331682.mp4'

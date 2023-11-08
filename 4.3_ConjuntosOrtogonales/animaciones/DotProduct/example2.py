@@ -166,6 +166,49 @@ class ConjuntosOrtogonalesOrtonormales(Scene):
 
 
 
+
+class MostrarBaseOrtogonal(ThreeDScene):
+	def construct(self):
+		# Create a 3D coordinate system
+		axes = ThreeDAxes()
+		self.set_camera_orientation(phi=60 * DEGREES, theta=-45 * DEGREES)
+
+		# Define the directions of the custom orthonormal basis vectors
+		u_direction = [1, 1, 0]  # Replace with your desired direction
+		v_direction = [-1, 1, 0]  # Replace with your desired direction
+		w_direction = [0, 0, 1]  # Replace with your desired direction
+
+		# Create the custom orthonormal basis vectors
+		u_hat = Arrow3D(ORIGIN, u_direction, color=RED)
+		v_hat = Arrow3D(ORIGIN, v_direction, color=GREEN)
+		w_hat = Arrow3D(ORIGIN, w_direction, color=BLUE)
+
+		# Add labels for the custom vectors and coordinates
+		u_label = MathTex(r"\hat{u}", color=RED).next_to(u_hat, RIGHT)
+		v_label = MathTex(r"\hat{v}", color=GREEN).next_to(v_hat, UP)
+		w_label = MathTex(r"\hat{w}", color=BLUE).next_to(w_hat, OUT)
+
+		u_coords = MathTex(r"\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}", color=RED).next_to(u_hat, DOWN)
+		v_coords = MathTex(r"\begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}", color=GREEN).next_to(v_hat, DOWN)
+		w_coords = MathTex(r"\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}", color=BLUE).next_to(w_hat, DOWN)
+
+		# Display the custom orthonormal basis and coordinates
+		self.play(Create(axes))
+		self.play(Create(u_hat), Create(v_hat), Create(w_hat))
+		self.play(Create(u_label), Create(v_label), Create(w_label))
+		self.play(Create(u_coords), Create(v_coords), Create(w_coords))
+
+		# Camera animation: Move around the z-axis
+		self.move_camera(phi=60 * DEGREES, theta=-45 * DEGREES)
+		self.begin_ambient_camera_rotation(rate=0.2)  # Rotate the camera
+		self.wait(15)  # Wait for the camera animation
+		self.stop_ambient_camera_rotation()  # Stop camera rotation
+		self.wait(4)
+
+
+
+
+
 class CoordenadasBaseOrtogonal(Scene):
 	def construct(self):
 		self.next_section("A", PresentationSectionType.NORMAL)
@@ -204,65 +247,251 @@ class CoordenadasBaseOrtogonal(Scene):
 		self.play(Uncreate(title), run_time=1)
 		textgroup = VGroup(text0[1], text0[3], text0[5])
 		self.play(textgroup.animate.to_corner(UL))
+		textgroup.add_background_rectangle()
 		
-
-
 		self.next_section("A.3", PresentationSectionType.NORMAL)
-		plane = NumberPlane(stroke_color=LIGHT_GREY, stroke_opacity=0.8)
+		text1 = Tex(r"\justifying {Si los vectores de \textit{B} fueran vectores unitarios, } ",
+					r"\justifying {es decir, si \textit{B} fuese una base ortonormal, entonces las coordenadas del vector $\vec{a}$ }"
+					r"\justifying {respecto a la base \textit{B} vendrían dadas por: } \\\ ",
+					r"\begin{center} $\alpha_i = (\vec{a} | \vec{v_i})$ \end{center} " 
+					).scale(0.7)
+		self.play(Write(text1))
+		self.wait(5)
+
+
+		self.next_section("A.4", PresentationSectionType.NORMAL)
+		self.play(Uncreate(text1), run_time=1)
+		plane = NumberPlane(stroke_color=LIGHT_GREY, stroke_opacity=0.8, axis_config={
+									 "stroke_color": WHITE
+										},)
 		plane.add_coordinates()
 		self.play(Create(plane))
 		self.bring_to_front(text0)
 
-		B_basis = [(0,1), (1,0)]
-		a_vector = (2,3)
 
-		coords = (2, 3)
-
+		a_vector_coords = (2,3)
 		# Create the vector with the specified coordinates
-		vector = Vector(coords, color=RED, stroke_width=4)
-
-		# Define a label for "vector"
-		# label_vector = MathTex("vector", color=WHITE, stroke_width=1)
-		# label_vector.move_to(title, aligned_edge=DOWN)
-
-		# Animate the word "vector" transforming into the vector
-		self.play(ReplacementTransform(text0[1][3], vector))
-
-		# Add the vector to the scene
-		#self.play(Create(vector))
-
+		vector = Vector(a_vector_coords, color=RED, stroke_width=4)
+		self.play(Create(vector), run_time=2)
+		label_vector = Tex(r"$\vec{a}$").next_to(vector, RIGHT).shift(LEFT*0.3)
+		label_coords = MathTex(f"({a_vector_coords[0]}, {a_vector_coords[1]})", color=WHITE, stroke_width=1).next_to(vector, RIGHT).shift(0.2*RIGHT)
 		# Add labels for the coordinates
-		label_coords = MathTex(f"({coords[0]}, {coords[1]})", color=WHITE, stroke_width=1).next_to(vector, RIGHT).shift(0.15*RIGHT)
 		self.play(Create(label_coords))
-
+		self.play(Create(label_vector))
 		self.wait(1)
 
 		
 		# Define the coordinates for the orthonormal basis vectors
-		orthonormal_coords = (2, 0), (0, 3)
+		B_basis = (1, -1), (1, 1)
 
 		# Create orthonormal basis vectors
-		orthonormal_vector1 = Vector(orthonormal_coords[0], color=GREEN, stroke_width=4)
-		orthonormal_vector2 = Vector(orthonormal_coords[1], color=BLUE, stroke_width=4)
+		orthogonal_vector1 = Vector(B_basis[0], color=GREEN, stroke_width=4)
+		orthogonal_vector2 = Vector(B_basis[1], color=BLUE, stroke_width=4)
 
 		# Add orthonormal basis vectors to the scene
-		self.play(Create(orthonormal_vector1), Create(orthonormal_vector2))
+		self.play(Create(orthogonal_vector1), Create(orthogonal_vector2))
 
 		# Add labels for the orthonormal basis vectors
-		label_orthonormal1 = MathTex(r"\hat{i}", color=GREEN, stroke_width=1).next_to(orthonormal_vector1, UP).shift(0.15*UP, 0.5*LEFT)
-		label_orthonormal2 = MathTex(r"\hat{j}", color=BLUE, stroke_width=1).next_to(orthonormal_vector2, RIGHT).shift(0.15*RIGHT, 0.5*DOWN)
+		label_orthogonal1 = Tex(r"$\vec{v_1}$", color=GREEN, stroke_width=1).next_to(orthogonal_vector1, LEFT).shift(RIGHT*2)
+		label_orthogonal2 = Tex(r"$\vec{v_2}$", color=BLUE, stroke_width=1).next_to(orthogonal_vector2, RIGHT)
 
-		self.play(Create(label_orthonormal1), Create(label_orthonormal2))
+		self.play(Create(label_orthogonal1), Create(label_orthogonal2))
 
-		# Calculate the coordinates of the vector in the orthonormal basis
-		dot_product_i = np.dot(coords, orthonormal_coords[0])
-		dot_product_j = np.dot(coords, orthonormal_coords[1])
 
-		# Create labels for the coordinates in the orthonormal basis
-		label_coords_orthonormal = MathTex(f"({dot_product_i}, {dot_product_j})", color=WHITE, stroke_width=1).next_to(orthonormal_vector2, RIGHT).shift(0.15*RIGHT)
+		v1_line = Line(plane.get_origin(), orthogonal_vector1.get_end(), color=GREEN)
+		v2_line = Line(plane.get_origin(), orthogonal_vector2.get_end(), color=BLUE)
+		v1_line.set_length(11)
+		v2_line.set_length(11)
+		self.play(Create(v1_line))
+		self.play(Create(v2_line))
+		dashed_a_v1 = DashedLine([2,3,0], [-1/2, 1/2,0])
+		projection_a_v1 = Line([0,0,0], [-1/2, 1/2,0], color=RED, stroke_width=7)
+		self.play(Create(dashed_a_v1), Create(projection_a_v1), run_time=2)
+		
 
-		self.play(Transform(label_coords, label_coords_orthonormal))
+		self.next_section("A.5")
+		stuff = VGroup(dashed_a_v1, projection_a_v1, plane, v1_line, v2_line, vector, label_orthogonal1, label_orthogonal2,orthogonal_vector1, orthogonal_vector2, label_vector, label_coords)
+		stuff.generate_target()
+		stuff.target.shift(3*RIGHT).scale(0.65)
+		self.add(stuff)
+		self.play(MoveToTarget(stuff), run_time=2)
+		self.bring_to_front(projection_a_v1)
+
+
+
+		self.next_section("A.6")
+		text2 = Tex(r" \justifying{Coordenadas del vector $\vec{a}$ en la base B:} \\\ \newline ",
+					r" \justifying{$(2,3) = \alpha_1 (1, -1) + \alpha_2 (1, 1)$ }\\\ \newline",
+					r" \justifying{$\alpha_1 = \frac{(2,3)|(1,-1)}{(1, -1) | (1, -1)}$ }\\\ \newline",
+					r" \justifying{$\alpha_1 = \frac{-1}{2}$ }\\\ \newline",
+					r" \justifying{$\alpha_2 = \frac{5}{2}$ }\\\ \newline",
+					r" \justifying{$[\vec{a}]_B =  [\frac{-1}{2}, \frac{5}{2}]$} \\\ \newline"
+
+			).set_stroke(width=1.3)
+
+
+		textgroup2 = VGroup(text2)
+		textgroup2.scale(0.6)
+		textgroup2.to_corner(UL)
+		textgroup2.arrange(DOWN, center=False, aligned_edge=LEFT)
+		textgroup2.shift(DOWN*2.5)
+		self.play(Write(textgroup2))
+
+		self.next_section("A.7")
+		self.play(Indicate(text2[2]), Indicate(text2[3]))
 		self.wait(1)
+		self.play(Indicate(projection_a_v1))
+
+		# textgroup2 = VGroup(text2[0], text2[1])
+		# textgroup2.to_edge(LEFT)
+		# #textgroup2.set_width(5)
+		# textgroup2.next_to(textgroup, DOWN)
+		# textgroup2.arrange(DOWN, aligned_edge=LEFT, center=False)
+		# #textgroup2.shift(1*RIGHT)
+		# textgroup2.scale(0.7)
+		# # backgroundRectangle = BackgroundRectangle(textgroup2, color=BLACK)
+		# #textgroup2.set_width(5)
+		# #self.add(backgroundRectangle)
+		# self.play(Write(textgroup2))
+
+		# textgroup3 = VGroup(text2[2], text2[3])
+		# textgroup3.next_to(textgroup2, DOWN)
+		# textgroup3.to_edge(LEFT)
+		# textgroup3.arrange(DOWN, aligned_edge=LEFT, center=False)
+		# textgroup3.shift(1*DOWN)
+		# textgroup3.scale(0.7)
+		# # backgroundRectangle2 = BackgroundRectangle(textgroup3, color=BLACK)
+
+
+		
+
+
+		# #textgroup3.set_width(5)
+		# #proj_label = Tex(r"$\frac{-1}{2}$")
+		# #proj_label.next_to(projection_a_v1, LEFT)
+
+
+
+		# self.play(Write(textgroup3))
+		# self.wait(2)
+
+		# self.next_section("A.6")
+		# self.play(Indicate(textgroup3))
+		# self.play(Indicate(projection_a_v1))
+		# self.wait(1)
+		# textgroup4 = VGroup(text2[4], text2[5])
+		# textgroup4.next_to(textgroup3, DOWN)
+		# textgroup4.to_edge(LEFT)
+		# textgroup4.arrange(DOWN, aligned_edge=LEFT, center=False)
+		# # textgroup4.shift()
+		# textgroup4.scale(0.7)
+		# # backgroundRectangle3 = BackgroundRectangle(textgroup4, color=BLACK)
+		# #textgroup4.set_width(5)
+		# self.play(Write(textgroup4))
+		# self.wait(2)
+
+
+
+		# # Calculate the coordinates of the vector in the orthonormal basis
+		# dot_product_i = np.dot(coords, orthonormal_coords[0])
+		# dot_product_j = np.dot(coords, orthonormal_coords[1])
+		# # Create labels for the coordinates in the orthonormal basis
+		# label_coords_orthonormal = MathTex(f"({dot_product_i}, {dot_product_j})", color=WHITE, stroke_width=1).next_to(orthonormal_vector2, RIGHT).shift(0.15*RIGHT)
+
+		#self.play(Transform(label_coords, label_coords_orthonormal))
+
+		self.wait(1)
+
+
+
+# class OOP(Scene):
+#     def construct(self):
+#         # Create the original vector
+#         vector = np.array([3, 2])
+#         original_vector = Vector(vector, color=RED)
+
+#         # Create the orthogonal basis vectors
+#         orthogonal_basis = [np.array([1, 0]), np.array([0, 1])]
+#         orthogonal_vectors = [Vector(v, color=BLUE) for v in orthogonal_basis]
+
+#         # Create labels for the orthogonal basis
+#         orthogonal_labels = [MathTex(r"\mathbf{v}_1"), MathTex(r"\mathbf{v}_2")]
+#         for label, vector in zip(orthogonal_labels, orthogonal_vectors):
+#             label.next_to(vector, RIGHT)
+#             label.set_color(BLUE)
+
+#         # Create the orthonormal basis vectors
+#         orthonormal_basis = [v / np.linalg.norm(v) for v in orthogonal_basis]
+#         orthonormal_vectors = [Vector(v, color=GREEN) for v in orthonormal_basis]
+
+#         # Create labels for the orthonormal basis
+#         orthonormal_labels = [MathTex(r"\mathbf{u}_1"), MathTex(r"\mathbf{u}_2")]
+#         for label, vector in zip(orthonormal_labels, orthonormal_vectors):
+#             label.next_to(vector, RIGHT)
+#             label.set_color(GREEN)
+
+#         # Display the original vector and the orthogonal basis
+#         self.play(Create(original_vector))
+#         self.wait(1)
+#         self.play(Create(*orthogonal_vectors))
+#         self.play(*[Write(label) for label in orthogonal_labels])
+#         self.wait(1)
+
+#         # Transition to the orthonormal basis
+#         self.play(FadeOut(*orthogonal_labels))
+#         self.play(Transform(original_vector, orthonormal_vectors[0]))
+#         self.play(Create(orthonormal_vectors[1]))
+#         self.play(*[Write(label) for label in orthonormal_labels])
+#         self.wait(1)
+
+#         # Show the coordinates in both bases
+#         original_coordinates = MathTex(r"\begin{bmatrix} 3 \\ 2 \end{bmatrix}", color=RED)
+#         orthogonal_coordinates = MathTex(r"\begin{bmatrix} 3 \\ 2 \end{bmatrix}", color=BLUE)
+#         orthonormal_coordinates = MathTex(r"\begin{bmatrix} 3 \\ 2 \end{bmatrix}", color=GREEN)
+
+#         original_coordinates.next_to(original_vector, UP)
+#         orthogonal_coordinates.next_to(orthogonal_vectors[1], RIGHT)
+#         orthonormal_coordinates.next_to(orthonormal_vectors[1], RIGHT)
+
+#         self.play(Write(original_coordinates))
+#         self.wait(1)
+#         self.play(Write(orthogonal_coordinates))
+#         self.wait(1)
+#         self.play(Write(orthonormal_coordinates))
+#         self.wait(2)
+
+
+
+# class CoordenadasBaseOrtogonal(Scene):
+# 	def construct(self):
+		
+
+
+# 		self.next_section("A.2", PresentationSectionType.NORMAL)
+
+# 		textgroupvanish = VGroup(text0[0], text0[2], text0[4])
+# 		self.play(Uncreate(textgroupvanish), run_time=1)
+
+# 		text_stroke_width = 1.8
+# 		self.play(text0[1].animate.shift(0.1*DOWN, 0.2*LEFT).set_color(YELLOW).set_weight(BOLD).set_stroke(width = text_stroke_width))
+# 		self.play(text0[3].animate.shift(0.8*UP, 0.2*LEFT).set_color(YELLOW).set_weight(BOLD).set_stroke(width = text_stroke_width))
+# 		self.play(text0[5].animate.shift(1.7*UP, 0.2*LEFT).set_color(YELLOW).set_weight(BOLD).set_stroke(width= text_stroke_width))
+		
+# 		self.play(Uncreate(title), run_time=1)
+# 		textgroup = VGroup(text0[1], text0[3], text0[5])
+# 		self.play(textgroup.animate.to_corner(UL))
+		
+
+
+# 		self.next_section("A.3", PresentationSectionType.NORMAL)
+# 		plane = NumberPlane(stroke_color=LIGHT_GREY, stroke_opacity=0.8, axis_config={
+#                                      "stroke_color": WHITE
+#                                         },)
+# 		plane.add_coordinates()
+# 		self.play(Create(plane))
+# 		self.bring_to_front(text0)
+
+
 
 
 
@@ -270,33 +499,536 @@ class CoordenadasBaseOrtogonal(Scene):
 
 class GramSchmidtOrthogonalization(Scene):
 	def construct(self):
-		# Define the initial vectors
-		v1 = np.array([3, 1])
-		v2 = np.array([1, 2])
 
-		# Create vector representations
-		vector1 = Vector(v1, color=RED, buff=0)
-		vector2 = Vector(v2, color=BLUE, buff=0)
+		self.next_section("ExplicacionProceso", PresentationSectionType.NORMAL)
+		#title = Tex(r"Coordenadas de un vector con respecto a una base ortogonal/ortonormal").scale(1)
 
-		# Display the initial vectors
-		self.play(Create(vector1), Create(vector2))
-		self.wait(1)
+		# .set_color_by_tex_to_color_map({"\\vec{a}": vec_a_color, "\\vec{b}": vec_b_color})
+		# Title
+		title = Tex("Proceso de", " ortogonalización", " de Gram-Schmidt", color=WHITE).scale(0.8)\
+			.set_color_by_tex_to_color_map({"ortogonalización": YELLOW, "Gram-Schmidt": YELLOW})
+		title.to_edge(UP)
+		title.shift(0.05 * UP)
+		self.play(Write(title))
 
-		# Step 1: Calculate the first orthogonal vector
-		u1 = v1
-		vector1_target = Vector(u1, color=GREEN, buff=0)
-		self.play(Transform(vector1, vector1_target))
-		self.wait(1)
 
-		# Step 2: Calculate the second orthogonal vector
-		v2_proj_v1 = (np.dot(v2, v1) / np.dot(v1, v1)) * v1
-		u2 = v2 - v2_proj_v1
-		vector2_target = Vector(u2, color=PURPLE, buff=0)
-		self.play(Transform(vector2, vector2_target))
-		self.wait(1)
+		#self.next_section("A.1", PresentationSectionType.NORMAL)
+		text0 = Tex(r"\justifying {Sea \textit{V} un espacio vectorial con producto interno y sea} \\\ \\\ ",
+			r"\justifying {$B = \{\vec{v_1}, \vec{v_2}, \ldots, \vec{v_n}\}$ } ",
+			r"\justifying {una base cualquiera de \textit{V}.} \\\ \\\ ",
+			r"\justifying {Si ${B_{ort}} = \{ \vec{w_1}, \vec{w_2}, \ldots, \vec{w_n} \} $}\\\ \\\ ",
+			r"\justifying {es una base ortogonal del espacio \textit{V}, entonces sus elementos vienen dados por: }\\\ \\\ ", 
+			r"\justifying {$\vec{w_1} = \vec{v_1}$ }\\\ ",
+			r"\justifying {$\vec{w_2} = \vec{v_2} - \frac{(\vec{v_2} | \vec{w_1})}{(\vec{w_1} | \vec{w_1})} \vec{w_1} $ } \\\ ",
+			r"\justifying {.} \\\ ",
+			r"\justifying {.} \\\ ",
+			r"\justifying {.} \\\ ",
+			r"\justifying {$ \vec{w_i} = \vec{v_2} - \Sigma_{k=1}^i-1 \frac{(\vec{v_i} | \vec{w_k})}{(\vec{w_k} | \vec{w_k})} \vec{w_k} $ } \\\ \\\ ",
+			r"\justifying {para \textit{i} = 1, 2, ..., n } \\\ "
+		).scale(0.5)
+		self.play(Write(text0))
+		self.wait(3)
 
-		# Display the final result
+		self.play(Indicate(text0[1]), Indicate(text0[3]), Indicate(text0[10]))
+		self.wait(4)
+
+		# self.next_section("ExplicacionProceso2", PresentationSectionType.NORMAL)
+		# textgroupvanish = VGroup(text0[0], text0[2], text0[4], text0[5], text0[6], text0[7], text0[8], text0[9], text0[11])
+		# self.play(Uncreate(textgroupvanish), run_time=1)
+
+		# text_stroke_width = 1.3
+		# self.play(text0[1].animate.shift(0.1*DOWN, 2*LEFT).set_color(YELLOW).set_weight(BOLD).set_stroke(width = text_stroke_width))
+		# self.play(text0[3].animate.next_to(text0[1], DOWN).shift(0.3*RIGHT).set_color(YELLOW).set_weight(BOLD).set_stroke(width = text_stroke_width))
+		# self.play(text0[10].animate.next_to(text0[3], DOWN).shift(0.1*RIGHT).set_color(YELLOW).set_weight(BOLD).set_stroke(width = text_stroke_width))
+
+		# self.play(Uncreate(title), run_time=1)
+		# textgroup = VGroup(text0[1], text0[3], text0[10])
+		# self.play(textgroup.animate.to_corner(UL).scale(0.8))
+		# textgroup.add_background_rectangle()
+
+
+
+
+		# self.next_section("AnimacionProceso", PresentationSectionType.NORMAL)
+
+
+		# plane_move = 4
+		# plane = NumberPlane(x_range=(-4,4), y_range=(-5, 5), stroke_color=LIGHT_GREY, stroke_opacity=0.8, axis_config={
+		# 							 "stroke_color": WHITE
+		# 								}).move_to(RIGHT*plane_move)
+		# plane.add_coordinates()
+		# self.play(Create(plane))
+		# self.bring_to_front(text0)
+
+		# coords = (2, 3)
+
+		# # Create the vector with the specified coordinates
+		# vector = Vector(coords, color=RED, stroke_width=4).move_to(RIGHT*plane_move)
+
+		# # Animate the vector "b1" transforming into the vector
+		# self.play(ReplacementTransform(text0[1][3:6], vector))
+
+		# # Display the final result
+		# self.wait(2)
+
+
+
+
+class EjemploGramSchmidt(ThreeDScene):
+	def construct(self):
+
+		self.next_section("PlanteamientoProblema", PresentationSectionType.NORMAL)
+		#title = Tex(r"Coordenadas de un vector con respecto a una base ortogonal/ortonormal").scale(1)
+
+
+		#self.next_section("A.1", PresentationSectionType.NORMAL)
+		text0 = Tex(r"\justifying {Obtener una base ortonormal del espacio V generado por los vectores: } \\\ ",
+			r" $\vec{v_1} = (1, 0, -1)$  \newline",
+			r" $\vec{v_2} = (-2, 1, 1)$  \newline",
+			r" $\vec{v_3} = (-1, 1, 0)$  \newline",
+			r"\justifying {con las operaciones usuales de adición, multiplicación por un escalar y producto interno en $R^3$} \\\ \\\ ",
+
+		).scale(0.8)
+		# .set_color_by_tex_to_color_map({"(1,0,-1)": YELLOW, "(-2,1,1)": YELLOW, "(-1,-1,0)": YELLOW}) 
+		self.play(Write(text0))
+		self.wait(3)
+
+
+		self.next_section("ComienzaGramSchmidt")
+		text_stroke_width = 1.3
+		self.play(Uncreate(text0[0]), run_time=1)
+		self.play(Uncreate(text0[4]), run_time=1)
+		text0[1].set_color(RED)
+		text0[2].set_color(BLUE)
+		text0[3].set_color(GREEN)
+		textgroup = VGroup(text0[1], text0[2], text0[3])
+		#textgroup.arrange(aligned_edge=LEFT, center=False)
+		textgroup.add_background_rectangle()
+
+
+		text1 = Tex(r"\justifying {Primero obtendremos un generador ortogonal de dicho espacio, \newline mediante el proceso de Gram-Schmidt} \\\ ")
+		text1_4 = Tex(r" $\vec{w_1} = \vec{v_1} = (1, 0, -1)$ ")
+		text1_5 = Tex(r" $\vec{w_2} = \vec{v_2} - \frac{(\vec{v_2} | \vec{w_1})}{(\vec{w_1} | \vec{w_1})} \vec{w_1} $ \\\ ")
+		text1_5_2=Tex(r" $= (-2, 1, 1) - \frac{-3}{2} (1, 0, -1)$ \newline $= (-\frac{1}{2}, 1, \frac{-1}{2})$")
+		text1_6 = Tex(r" $\vec{w_3} = \vec{v_3} - \frac{(\vec{v_3} | \vec{w_1})}{(\vec{w_1} | \vec{w_1})} \vec{w_1} - \frac{(\vec{v_3} | \vec{w_2})}{(\vec{w_2} | \vec{w_2})} \vec{w_2} $\newline")
+		text1_7 = Tex(r" $ = (-1, 1, 0) - \frac{-1}{2} (1, 0, -1) - \frac{\frac{-3}{2}}{\frac{-3}{2}} (\frac{-1}{2}, 1, \frac{-1}{2}) = (0, 0, 0) $")
+		text1_8 = Tex(r"\justifying {entonces: $G_0 = \{ (-1, 0, -1), (\frac{-1}{2}, 1, \frac{-1}{2}), (0, 0, 0) \}$} \\\ \\\ ")
+		text1_9	= Tex(r"\justifying {es un generador ortogonal de \textit{V} y el conjunto} \\\ ")
+		text1_10= Tex(r"$ B = \{ (1, 0, -1), (\frac{-1}{2}, 1, \frac{-1}{2}) \} $")
+		text1_11= Tex(r" es una base ortogonal de dicho espacio. ")
+
+
+		text1_12 = Tex(r"\justifying {Para obtener una base ortonormal calculamos:} \\\ ")
+		text1_13 = Tex(r" $||\vec{w_1}|| = \sqrt{(\vec{w_1}|\vec{w_1})} = \sqrt{2}$ \\\ ")
+		text1_14 = Tex(r" $||\vec{w_2}|| = \sqrt{(\vec{w_2}|\vec{w_2})} = \sqrt{\frac{3}{2}} $ \\\ ")
+		text1_15 = Tex(r" $B = \{ (\frac{1}{\sqrt{2}}, 0, \frac{-1}{\sqrt{2}}), (\frac{-1}{\sqrt{6}}, \sqrt{\frac{2}{3}}, \frac{-1}{\sqrt{6}}) \} $ \\\ ")
+		text1_16 = Tex(r" es una base ortonormal de V")
+
+		text_w1 = Tex(r"$\vec{w1} = (1, 0, -1)$")
+		text_w2 = Tex(r"$\vec{w2} = (\frac{-1}{2}, 1, \frac{-1}{2})$")
+		text_w3 = Tex(r"$\vec{w3} = (0, 0, 0)$")
+		text_normw1 = Tex(r"$\vec{w1} = (1, 0, -1)$")
+		text_normw2 = Tex(r"$\vec{w1} = (1, 0, -1)$")
+		text_normw3 = Tex(r"$\vec{w1} = (1, 0, -1)$")
+
+
+		axes = ThreeDAxes()
+		self.play(textgroup.animate.to_corner(UL))
+		self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
+		labx = axes.get_x_axis_label(Tex("$x$"))
+		laby = axes.get_y_axis_label(Tex("$y$"))
+		self.add_fixed_in_frame_mobjects(textgroup)
+		self.play(FadeIn(axes))
+		self.add(labx, laby)
+
+		origin = [0,0,0]
+		v1 = [1,0,-1]
+		v2 = [-2,1,1]
+		v3 = [-1,1,0]
+
+		vec_v1 = Arrow3D(
+			start=origin,
+			end=v1,
+			resolution=20, 
+			thickness = 0.05, 
+			color=RED
+		)
+
+		vec_v2 = Arrow3D(
+			start=origin,
+			end=v2,
+			resolution=20,
+			thickness = 0.05,
+			color=BLUE
+		)
+
+		vec_v3 = Arrow3D(
+			start=origin,
+			end=v3,
+			resolution=20,
+			thickness = 0.05,
+			color=GREEN
+		)
+
+
+
+		self.move_camera(phi=60 * DEGREES, theta=-45 * DEGREES)
+		self.begin_ambient_camera_rotation(rate=0.1)  # Rotate the camera
+		
+		self.play(Create(vec_v1), Create(vec_v2), Create(vec_v3))
+
+		self.next_section("MostrarEspacioGenerado")
+		span_surface = ParametricSurface(
+			lambda u, v: u * vec_v1.get_end() + v * vec_v2.get_end() + (1 - u - v) * vec_v3.get_end(),
+			u_range=(-10, 10),
+			v_range=(-10, 10),
+			color=WHITE,
+			checkerboard_colors=[WHITE, GREY_B],
+			fill_opacity=0.3
+		)
+
+		self.play(Create(span_surface))
+		self.wait(8)
+
+		self.play(Uncreate(span_surface))
+	
+		START_TEXT = [-2,1.5,0]
+		STROKE_WIDTH = 3.8
+		TEXT_SCALE = 0.7
+		MATH_TEXT_SCALE = 0.9
+
+		self.next_section("ResolucionEjercicio.1")
+		text1.scale(TEXT_SCALE)
+		text1.move_to(START_TEXT)
+		text1.to_edge(LEFT)
+		text1.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text1)
+		#text1.arrange(center=False, aligned_edge=LEFT)
+		self.play(Write(text1))
 		self.wait(2)
+
+		self.next_section("ResolucionEjercicio.2")
+		self.play(Uncreate(text1), run_time=0.8)
+		text1_4.scale(MATH_TEXT_SCALE)
+		text1_4.move_to(START_TEXT)
+		text1_4.to_edge(LEFT)
+		text1_4.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text1_4)
+		# text1_4.arrange(center=False, aligned_edge=LEFT)
+		# text1_4.set_alignment(LEFT)
+		self.play(Write(text1_4))
+		self.wait(2)
+		self.play(Indicate(text1_4))
+		self.play(Indicate(text0[1]), Indicate(vec_v1))
+
+		text_w1.scale(TEXT_SCALE)
+		text_w1.to_corner(DL)
+		text_w1.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text_w1)
+		self.play(Write(text_w1))
+
+
+		self.next_section("ResolucionEjercicio.3")
+		self.play(Uncreate(text1_4), run_time=0.8)
+		text1_5.scale(MATH_TEXT_SCALE)
+		text1_5.move_to(START_TEXT)
+		text1_5.to_edge(LEFT)
+		text1_5.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text1_5)
+		# text1_4.arrange(center=False, aligned_edge=LEFT)
+		# text1_4.set_alignment(LEFT)
+		self.play(Write(text1_5))
+		self.wait(2)
+
+
+		self.next_section("ResolucionEjercicio.4")
+		text1_5_2.scale(MATH_TEXT_SCALE)
+		text1_5_2.next_to(text1_5, DOWN)
+		text1_5_2.to_edge(LEFT)
+		text1_5_2.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text1_5_2)
+		# text1_4.arrange(center=False, aligned_edge=LEFT)
+		# text1_4.set_alignment(LEFT)
+		self.play(Write(text1_5_2))
+		self.wait(2)
+
+		self.next_section("proyeccionYResta")
+		# dot1 = Dot(point=[10,0,-1])
+		# dot2 = Dot(point=[-10,0,10])
+		direction_w1 = Line(origin, vec_v2.get_end(), color=RED)
+		direction_w1.set_length(20)
+		dashed_v2_w1 = DashedLine(vec_v2.get_end(), [-3/2, 0, 3/2])
+		#rightangle_v2_w1 = RightAngle(dashed_v2_w1, direction_w1)
+		vec_v2_minus_w1 = Arrow3D(
+			start=vec_v2.get_end(),
+			end=[-1/2, 1, -1/2],
+			resolution=20,
+			thickness = 0.04,
+			color=PURPLE
+		)
+		vec_w2 = Arrow3D(
+			start=origin,
+			end=[-1/2, 1, -1/2],
+			resolution=20,
+			thickness = 0.04,
+			color=PURPLE
+			)
+		self.play(Create(direction_w1))
+		self.play(Create(dashed_v2_w1), run_time=2)
+		#self.play(Create(rightangle_v2_w1))
+
+		self.next_section("mostrarVectorResta")
+		self.play(Uncreate(direction_w1))
+		self.play(Uncreate(dashed_v2_w1))
+		#self.play(Uncreate(rightangle_v2_w1))
+		self.wait(1)
+		self.play(GrowFromPoint(vec_v2_minus_w1, vec_v2.get_end()), run_time=2)
+		self.wait(1)
+		self.play(Transform(vec_v2_minus_w1, vec_w2), run_time=3)
+		self.wait(1)
+		self.play(Indicate(vec_w2))
+		text_w2.scale(TEXT_SCALE)
+		text_w2.to_corner(DL)
+		text_w2.shift(1*UP)
+		text_w2.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text_w2)
+		self.play(Write(text_w2))
+		self.play(Indicate(text_w2))
+
+
+		# self.next_section("ResolucionEjercicio.5")
+		# self.play(Uncreate(text1_5), run_time=0.8)
+		# self.play(Uncreate(text1_5_2), run_time=0.8)
+		# text1_6.scale(MATH_TEXT_SCALE)
+		# text1_6.move_to(START_TEXT)
+		# text1_6.to_edge(LEFT)
+		# text1_6.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_6)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_6))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.6")
+		# text1_7.scale(MATH_TEXT_SCALE)
+		# text1_7.next_to(text1_6, DOWN)
+		# text1_7.to_edge(LEFT)
+		# text1_7.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_7)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_7))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.7")
+		# self.play(Uncreate(text1_6), run_time=0.8)
+		# self.play(Uncreate(text1_7), run_time=0.8)
+		# text1_8.scale(TEXT_SCALE)
+		# text1_8.move_to(START_TEXT)
+		# text1_8.to_edge(LEFT)
+		# text1_8.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_8)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_8))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.8")
+		# text1_9.scale(TEXT_SCALE)
+		# text1_9.next_to(text1_8, DOWN)
+		# text1_9.to_edge(LEFT)
+		# text1_9.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_9)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_9))
+		# self.wait(2)
+
+
+		# self.next_section("ResolucionEjercicio.9")
+		# self.play(Uncreate(text1_8), run_time=0.8)
+		# self.play(Uncreate(text1_9), run_time=0.8)
+		# text1_10.scale(MATH_TEXT_SCALE)
+		# text1_10.move_to(START_TEXT)
+		# text1_10.to_edge(LEFT)
+		# text1_10.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_10)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_10))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.10")
+		# text1_11.scale(TEXT_SCALE)
+		# text1_11.next_to(text1_10, DOWN)
+		# text1_11.to_edge(LEFT)
+		# text1_11.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_11)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_11))
+		# self.wait(2)
+
+
+		# self.next_section("ResolucionEjercicio.11")
+		# self.play(Uncreate(text1_10), run_time=0.8)
+		# self.play(Uncreate(text1_11), run_time=0.8)
+		# text1_12.scale(TEXT_SCALE)
+		# text1_12.move_to(START_TEXT)
+		# text1_12.to_edge(LEFT)
+		# text1_12.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_12)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_12))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.12")
+		# self.play(Uncreate(text1_12), run_time=0.8)
+		# text1_13.scale(MATH_TEXT_SCALE)
+		# text1_13.move_to(START_TEXT)
+		# text1_13.to_edge(LEFT)
+		# text1_13.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_13)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_13))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.13")
+		# self.play(Uncreate(text1_13), run_time=0.8)
+		# text1_14.scale(MATH_TEXT_SCALE)
+		# text1_14.move_to(START_TEXT)
+		# text1_14.to_edge(LEFT)
+		# text1_14.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_14)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_14))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.14")
+		# self.play(Uncreate(text1_14), run_time=0.8)
+		# text1_15.scale(MATH_TEXT_SCALE)
+		# text1_15.move_to(START_TEXT)
+		# text1_15.to_edge(LEFT)
+		# text1_15.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_15)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_15))
+		# self.wait(2)
+
+		# self.next_section("ResolucionEjercicio.15")
+		# text1_16.scale(TEXT_SCALE)
+		# text1_16.next_to(text1_15, DOWN)
+		# text1_16.to_edge(LEFT)
+		# text1_16.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_16)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_16))
+		# self.wait(2)
+
+		
+
+
+		self.stop_ambient_camera_rotation()  # Stop camera rotation
+		self.wait(1)
+
+	
+
+class Bibliografia(Scene):
+	def construct(self):
+
+		self.next_section("Referencias", PresentationSectionType.NORMAL)
+
+		bibtitle = Tex("Referencias")
+		bibtitle.scale(1.5)
+		bibtitle.to_edge(UP)
+		self.play(Write(bibtitle))
+
+		bib1 = Tex(r"\justifying{1. Speziale, L., Solar E. (1985). \textit{Apuntes de Álgebra Lineal}. Universidad Nacional Autónoma de México}")
+		bib2 = Tex(r"\justifying{2. Barrera, F. (2019). \textit{Fundamentos de Álgebra Lineal y Ejercicios}. Segunda edición. Universidad Nacional Autónoma de México}")	
+		bib3 = Tex(r"\justifying{3. Sanderson, G. (2016). \textit{Essence of Linear Algebra}. https://www.3blue1brown.com/topics/linear-algebra}")
+
+		bibgroup = VGroup(bib1, bib2, bib3)
+		bibgroup.scale(0.6)
+		bibgroup.arrange(DOWN, center=False, aligned_edge=LEFT)
+		self.play(Write(bibgroup))
+
+		self.wait(2)
+
+
+# class textGS(ThreeDScene):
+# 	def construct(self):
+# 		text1 = Tex(r"\justifying {Primero obtendremos un generador ortogonal de dicho espacio, \\\ "
+# 			r" mediante el proceso de Gram-Schmidt} \\\ ",
+# 			r" Para ello hacemos: \\\ "
+# 			r" $\vec{w_1} = \vec{v_1} = (1, 0, -1)$  \newline",
+# 			r" $\vec{w_2} = \vec{v_2} - \frac{(\vec{v_2} | \vec{w_1})}{(\vec{w_1} | \vec{w_1})} \vec{w_1} = (-2, 1, 1) - \frac{-3}{2} (1, 0, -1) = (\frac{-1}{2}, 1, \frac{-1}{2} ) $ \newline",
+# 			r" $\vec{w_3} = \vec{v_3} - \frac{(\vec{v_3} | \vec{w_1})}{(\vec{w_1} | \vec{w_1})} \vec{w_1} - \frac{(\vec{v_3} | \vec{w_2})}{(\vec{w_2} | \vec{w_2})} \vec{w_2} $\newline",
+# 			r" $ = (-1, 1, 0) - \frac{-1}{2} (1, 0, -1) - \frac{\frac{-3}{2}}{\frac{-3}{2}} (\frac{-1}{2}, 1, \frac{-1}{2}) = (0, 0, 0) $"
+# 			r"\justifying {entonces: $G_0 = \{ (-1, 0, -1), (\frac{-1}{2}, 1, \frac{-1}{2}), (0, 0, 0) \}$} \\\ \\\ ",
+# 			r"\justifying {es un generador ortogonal de \textit{V} y el conjunto} \\\ ",
+# 			r"$B = \{ (1, 0, -1), (\frac{-1}{2}, 1, \frac{-1}{2}) \} $",
+# 			r" es una base ortogonal de dicho espacio."
+
+# 		).scale(0.6)
+# 		text1.set_width(5)
+# 		text1.to_corner(UL)
+# 		self.play(Write(text1))
+
+# 		text2 = Tex(r"\justifying {Para obtener una base ortonormal calculamos:} \\\ ",
+# 			r" $||\vec{w_1}|| = \sqrt{(\vec{w_1}|\vec{w_1})} = \sqrt{2}$ \\\ ",
+# 			r" $||\vec{w_2}|| = \sqrt{(\vec{w_2}|\vec{w_2})} = \sqrt{\frac{3}{2}} $ \\\ ",
+# 			r" y en consecuencia el conjunto: \\\ ",
+# 			r" $B = \{ (\frac{1}{\sqrt{2}}, 0, \frac{-1}{\sqrt{2}}), (\frac{-1}{\sqrt{6}}, \sqrt{\frac{2}{3}}, \frac{-1}{\sqrt{6}}) \} $ \\\ ",
+# 			r" es una base ortonormal de V"
+# 		).scale(0.6)
+
+	# textgroup1 = VGroup(text1, text1_4, text1_5, text1_6, text1_7, text1_8, text1_9, text1_10, text1_11)
+		# textgroup1.arrange(DOWN, center=False, aligned_edge=LEFT)
+		# textgroup1.next_to()
+
+
+
+# axes = ThreeDAxes()
+#         self.set_camera_orientation(phi=60 * DEGREES, theta=-45 * DEGREES)
+
+#         # Define the directions of the custom orthonormal basis vectors
+#         u_direction = [1, 1, 0]  # Replace with your desired direction
+#         v_direction = [-1, 1, 0]  # Replace with your desired direction
+#         w_direction = [0, 0, 1]  # Replace with your desired direction
+
+#         # Create the custom orthonormal basis vectors
+#         u_hat = Arrow3D(ORIGIN, u_direction, color=RED)
+#         v_hat = Arrow3D(ORIGIN, v_direction, color=GREEN)
+#         w_hat = Arrow3D(ORIGIN, w_direction, color=BLUE)
+
+#         # Add labels for the custom vectors and coordinates
+#         u_label = MathTex(r"\hat{u}", color=RED).next_to(u_hat, RIGHT)
+#         v_label = MathTex(r"\hat{v}", color=GREEN).next_to(v_hat, UP)
+#         w_label = MathTex(r"\hat{w}", color=BLUE).next_to(w_hat, OUT)
+
+#         u_coords = MathTex(r"\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}", color=RED).next_to(u_hat, DOWN)
+#         v_coords = MathTex(r"\begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}", color=GREEN).next_to(v_hat, DOWN)
+#         w_coords = MathTex(r"\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}", color=BLUE).next_to(w_hat, DOWN)
+
+#         # Display the custom orthonormal basis and coordinates
+#         self.play(Create(axes))
+#         self.play(Create(u_hat), Create(v_hat), Create(w_hat))
+#         self.play(Create(u_label), Create(v_label), Create(w_label))
+#         self.play(Create(u_coords), Create(v_coords), Create(w_coords))
+
+#         # Camera animation: Move around the z-axis
+#         self.move_camera(phi=60 * DEGREES, theta=-45 * DEGREES)
+#         self.begin_ambient_camera_rotation(rate=0.2)  # Rotate the camera
+#         self.wait(10)  # Wait for the camera animation
+#         self.stop_ambient_camera_rotation()  # Stop camera rotation
+#         self.wait(3)
+
+
 
 
 
@@ -1039,5 +1771,268 @@ class DotProdRectangleShowVectors(MovingCameraScene, ProjectionVectorScene):
 ########################################################################################
 # Finaliza animación de producto interno
 ########################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################################################
+# Animacion Gram Schmidt no usada
+#######################################################################################
+
+
+# from manimlib.imports import *
+# from enum import Enum
+
+
+# class Action(Enum):
+#     UPDATE_MATRIX_REMOVE_Q = 1
+#     ADD_PROJECTION = 2
+#     REMOVE_PROJECTIONS_SET_Q = 3
+#     NORMALIZE_Q = 4
+
+
+# def gram_schmidt(A):
+	
+#     (n, m) = A.shape
+	
+#     for i in range(m):
+		
+#         q = A[:, i] # i-th column of A
+		
+#         for j in range(i):
+#             yield (Action.ADD_PROJECTION, np.dot(A[:, j], A[:, i]) * A[:, j])
+#             q = q - np.dot(A[:, j], A[:, i]) * A[:, j]
+		
+#         if np.array_equal(q, np.zeros(q.shape)):
+#             raise np.linalg.LinAlgError("The column vectors are not linearly independent")
+		
+#         yield (Action.REMOVE_PROJECTIONS_SET_Q, q)
+		
+#         # normalize q
+#         q = q / np.sqrt(np.dot(q, q))
+
+#         yield (Action.NORMALIZE_Q, q)
+		
+#         # write the vector back in the matrix
+#         A[:, i] = q
+
+#         yield (Action.UPDATE_MATRIX_REMOVE_Q, None)
+
+
+# class GramSchmidt(ThreeDScene):
+
+#     CONFIG = {
+#         "x_axis_label": "$x$",
+#         "y_axis_label": "$y$",
+#         "basis_i_color": GREEN,
+#         "basis_j_color": RED,
+#         "basis_k_color": GOLD,
+#         "q_color": PURPLE,
+#         "q_shifted_color": PINK,
+#         "projection_color": BLUE
+#     }
+
+#     def create_matrix(self, np_matrix):
+
+#         m = Matrix(np_matrix)
+
+#         m.scale(0.5)
+#         m.set_column_colors(self.basis_i_color, self.basis_j_color, self.basis_k_color)
+
+#         m.to_corner(UP + LEFT)
+
+#         return m
+
+#     def construct(self):
+		
+#         M = np.array([
+#             [1.0, 1.0, -3.0],
+#             [3.0, 2.0, 1.0],
+#             [-2.0, 0.5, 2.5]
+#         ])
+
+#         axes = ThreeDAxes()
+
+#         axes.set_color(GRAY)
+
+#         axes.add(axes.get_axis_labels())
+
+#         self.set_camera_orientation(phi=55 * DEGREES, theta=-45 * DEGREES)
+
+#         basis_helper = TextMobject("$ a_1 $", ",", "$ a_2 $", ",", "$ a_3 $")
+#         basis_helper[0].set_color(self.basis_i_color)
+#         basis_helper[2].set_color(self.basis_j_color)
+#         basis_helper[4].set_color(self.basis_k_color)
+
+#         q_helper = TextMobject("Current $ q_i $ vector")
+#         q_helper[0].set_color(self.q_color)
+
+#         q_shifted_helper = TextMobject("Shifted $ q_i $ vector")
+#         q_shifted_helper[0].set_color(self.q_shifted_color)
+
+#         projection_helper = TextMobject("Projection vectors")
+#         projection_helper[0].set_color(self.projection_color)
+
+#         helper = VGroup(
+#             projection_helper,
+#             q_helper,
+#             q_shifted_helper,
+#             basis_helper
+#         )
+
+#         helper.arrange(
+#             DOWN,
+#             aligned_edge = RIGHT,
+#             buff=0.1
+#         )
+
+#         helper.to_corner(UP + RIGHT)
+
+#         self.add_fixed_in_frame_mobjects(helper)
+
+#         # matrix
+
+#         matrix = self.create_matrix(M)
+
+#         self.add_fixed_in_frame_mobjects(matrix)
+
+#         # axes & camera
+
+#         self.add(axes)
+
+#         self.begin_ambient_camera_rotation(rate=0.15)
+
+#         i_vec = Vector(M[:, 0], color=self.basis_i_color)
+#         j_vec = Vector(M[:, 1], color=self.basis_j_color)
+#         k_vec = Vector(M[:, 2], color=self.basis_k_color)
+
+#         self.play(
+#             GrowArrow(i_vec),
+#             GrowArrow(j_vec),
+#             GrowArrow(k_vec),
+#             Write(helper)
+#         )
+
+#         self.wait()
+
+#         projection_vectors = []
+
+#         q = None
+
+#         for (action, payload) in gram_schmidt(M):
+
+#             if action == Action.UPDATE_MATRIX_REMOVE_Q:
+
+#                 assert not q is None
+
+#                 M_rounded = np.round(M.copy(), 2)
+				
+#                 self.remove(matrix)
+
+#                 matrix = self.create_matrix(M_rounded)
+
+#                 self.add_fixed_in_frame_mobjects(matrix)
+
+#                 i_vec_new = Vector(M[:, 0], color=self.basis_i_color)
+#                 j_vec_new = Vector(M[:, 1], color=self.basis_j_color)
+#                 k_vec_new = Vector(M[:, 2], color=self.basis_k_color)
+
+#                 animation_time = 2.0
+
+#                 self.play(
+#                     FadeOut(q, run_time=animation_time * 0.75),
+#                     ReplacementTransform(i_vec, i_vec_new, run_time=animation_time),
+#                     ReplacementTransform(j_vec, j_vec_new, run_time=animation_time),
+#                     ReplacementTransform(k_vec, k_vec_new, run_time=animation_time)
+#                 )
+
+#                 self.wait()
+
+#                 i_vec, j_vec, k_vec = i_vec_new, j_vec_new, k_vec_new
+
+#             elif action == Action.ADD_PROJECTION:
+
+#                 p = Vector(payload, color=self.projection_color)
+
+#                 projection_vectors.append(p)
+
+#                 self.play(GrowArrow(p))
+
+#                 self.wait()
+
+#                 if len(projection_vectors) == 2:
+
+#                     first_projection_end = projection_vectors[0].get_end()
+
+#                     p_shifted = Arrow(first_projection_end, first_projection_end + payload, buff=0, color=self.projection_color)
+
+#                     projection_vectors[1] = p_shifted
+
+#                     self.play(ReplacementTransform(p, p_shifted))
+
+#                     self.wait()
+
+#             elif action == Action.REMOVE_PROJECTIONS_SET_Q:
+
+#                 if not projection_vectors:
+
+#                     q = Vector(payload, color=self.q_color)
+
+#                     self.play(GrowArrow(q))
+
+#                     self.wait()
+
+#                     continue
+
+#                 last_projection_end = projection_vectors[len(projection_vectors) - 1].get_end()
+
+#                 q_shifted = Arrow(last_projection_end, last_projection_end + payload, buff=0, color=self.q_shifted_color)
+
+#                 self.play(GrowArrow(q_shifted))
+
+#                 self.wait()
+
+#                 q = Vector(payload, color=self.q_color)
+
+#                 self.play(
+#                     ReplacementTransform(q_shifted, q),
+#                     *[FadeOut(p) for p in projection_vectors]
+#                 )
+
+#                 self.wait()
+
+#                 projection_vectors = []
+
+#             elif action == Action.NORMALIZE_Q:
+
+#                 q_normalized = Vector(payload, color=self.q_color)
+
+#                 self.play(ReplacementTransform(q, q_normalized))
+
+#                 self.wait()
+
+#                 q = q_normalized
+
+#             else:
+#                 assert False
+
+#             self.wait(1)
+
+#         assert np.allclose(M.T @ M, np.identity(3))
+
+#         self.wait(15)
+
 
 

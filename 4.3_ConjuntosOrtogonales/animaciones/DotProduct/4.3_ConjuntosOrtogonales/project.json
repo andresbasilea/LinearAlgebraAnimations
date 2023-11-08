@@ -313,5 +313,173 @@
                 "parent_id": 14
             }
         ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 0,
+                "name": "autocreated",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\MostrarBaseOrtogonal_0000.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 9.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0015.mp4",
+                "in_project_thumbnail": "thumb_0015.jpg",
+                "in_project_id": 15,
+                "parent_id": 15
+            }
+        ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 0,
+                "name": "A",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\CoordenadasBaseOrtogonal_0000.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 7.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0016.mp4",
+                "in_project_thumbnail": "thumb_0016.jpg",
+                "in_project_id": 16,
+                "parent_id": 16
+            }
+        ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 1,
+                "name": "A.2",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\CoordenadasBaseOrtogonal_0001.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 6.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0017.mp4",
+                "in_project_thumbnail": "thumb_0017.jpg",
+                "in_project_id": 17,
+                "parent_id": 17
+            }
+        ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 2,
+                "name": "A.3",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\CoordenadasBaseOrtogonal_0002.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 7.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0018.mp4",
+                "in_project_thumbnail": "thumb_0018.jpg",
+                "in_project_id": 18,
+                "parent_id": 18
+            }
+        ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 3,
+                "name": "A.4",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\CoordenadasBaseOrtogonal_0003.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 9.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0019.mp4",
+                "in_project_thumbnail": "thumb_0019.jpg",
+                "in_project_id": 19,
+                "parent_id": 19
+            }
+        ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 0,
+                "name": "ExplicacionProceso",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\GramSchmidtOrthogonalization_0000.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 7.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0020.mp4",
+                "in_project_thumbnail": "thumb_0020.jpg",
+                "in_project_id": 20,
+                "parent_id": 20
+            }
+        ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 1,
+                "name": "ExplicacionProceso2",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\GramSchmidtOrthogonalization_0001.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 6.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0021.mp4",
+                "in_project_thumbnail": "thumb_0021.jpg",
+                "in_project_id": 21,
+                "parent_id": 21
+            }
+        ]
+    },
+    {
+        "sections_len": 1,
+        "sections": [
+            {
+                "id": 2,
+                "name": "AnimacionProceso",
+                "type": "normal",
+                "is_sub_section": false,
+                "original_video": "C:\\Users\\Andres\\Documents\\ESTUDIO\\ALGEBRALINEAL\\PRESENTACIONES\\4.3_ConjuntosOrtogonales\\animaciones\\DotProduct\\media\\videos\\example2\\1080p60\\sections\\GramSchmidtOrthogonalization_0002.mp4",
+                "width": 1920,
+                "height": 1080,
+                "fps": "60",
+                "duration": 4.0,
+                "project_name": "4.3_ConjuntosOrtogonales",
+                "in_project_video": "video_0022.mp4",
+                "in_project_thumbnail": "thumb_0022.jpg",
+                "in_project_id": 22,
+                "parent_id": 22
+            }
+        ]
     }
 ]
