@@ -673,7 +673,7 @@ class EjemploGramSchmidt(ThreeDScene):
 
 
 		self.move_camera(phi=60 * DEGREES, theta=-45 * DEGREES)
-		self.begin_ambient_camera_rotation(rate=0.1)  # Rotate the camera
+		self.begin_ambient_camera_rotation(rate=0.08)  # Rotate the camera
 		
 		self.play(Create(vec_v1), Create(vec_v2), Create(vec_v3))
 
@@ -687,138 +687,231 @@ class EjemploGramSchmidt(ThreeDScene):
 			fill_opacity=0.3
 		)
 
-		self.play(Create(span_surface))
-		self.wait(8)
+		# self.play(Create(span_surface))
+		# self.wait(8)
 
-		self.play(Uncreate(span_surface))
+		#self.play(Uncreate(span_surface))
 	
 		START_TEXT = [-2,1.5,0]
 		STROKE_WIDTH = 3.8
 		TEXT_SCALE = 0.7
 		MATH_TEXT_SCALE = 0.9
 
-		self.next_section("ResolucionEjercicio.1")
-		text1.scale(TEXT_SCALE)
-		text1.move_to(START_TEXT)
-		text1.to_edge(LEFT)
-		text1.set_stroke(width = STROKE_WIDTH)
-		self.add_fixed_in_frame_mobjects(text1)
-		#text1.arrange(center=False, aligned_edge=LEFT)
-		self.play(Write(text1))
-		self.wait(2)
+		# self.next_section("ResolucionEjercicio.1")
+		# text1.scale(TEXT_SCALE)
+		# text1.move_to(START_TEXT)
+		# text1.to_edge(LEFT)
+		# text1.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1)
+		# #text1.arrange(center=False, aligned_edge=LEFT)
+		# self.play(Write(text1))
+		# self.wait(2)
 
-		self.next_section("ResolucionEjercicio.2")
-		self.play(Uncreate(text1), run_time=0.8)
-		text1_4.scale(MATH_TEXT_SCALE)
-		text1_4.move_to(START_TEXT)
-		text1_4.to_edge(LEFT)
-		text1_4.set_stroke(width = STROKE_WIDTH)
-		self.add_fixed_in_frame_mobjects(text1_4)
-		# text1_4.arrange(center=False, aligned_edge=LEFT)
-		# text1_4.set_alignment(LEFT)
-		self.play(Write(text1_4))
-		self.wait(2)
-		self.play(Indicate(text1_4))
-		self.play(Indicate(text0[1]), Indicate(vec_v1))
+		# self.next_section("ResolucionEjercicio.2")
+		# self.play(Uncreate(text1), run_time=0.8)
+		# text1_4.scale(MATH_TEXT_SCALE)
+		# text1_4.move_to(START_TEXT)
+		# text1_4.to_edge(LEFT)
+		# text1_4.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_4)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_4))
+		# self.wait(2)
+		# self.play(Indicate(text1_4))
+		# self.play(Indicate(text0[1]), Indicate(vec_v1))
 
-		text_w1.scale(TEXT_SCALE)
-		text_w1.to_corner(DL)
-		text_w1.set_stroke(width = STROKE_WIDTH)
-		self.add_fixed_in_frame_mobjects(text_w1)
-		self.play(Write(text_w1))
-
-
-		self.next_section("ResolucionEjercicio.3")
-		self.play(Uncreate(text1_4), run_time=0.8)
-		text1_5.scale(MATH_TEXT_SCALE)
-		text1_5.move_to(START_TEXT)
-		text1_5.to_edge(LEFT)
-		text1_5.set_stroke(width = STROKE_WIDTH)
-		self.add_fixed_in_frame_mobjects(text1_5)
-		# text1_4.arrange(center=False, aligned_edge=LEFT)
-		# text1_4.set_alignment(LEFT)
-		self.play(Write(text1_5))
-		self.wait(2)
+		# text_w1.scale(TEXT_SCALE)
+		# text_w1.to_corner(DL)
+		# text_w1.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text_w1)
+		# self.play(Write(text_w1))
 
 
-		self.next_section("ResolucionEjercicio.4")
-		text1_5_2.scale(MATH_TEXT_SCALE)
-		text1_5_2.next_to(text1_5, DOWN)
-		text1_5_2.to_edge(LEFT)
-		text1_5_2.set_stroke(width = STROKE_WIDTH)
-		self.add_fixed_in_frame_mobjects(text1_5_2)
-		# text1_4.arrange(center=False, aligned_edge=LEFT)
-		# text1_4.set_alignment(LEFT)
-		self.play(Write(text1_5_2))
-		self.wait(2)
+		# self.next_section("ResolucionEjercicio.3")
+		# self.play(Uncreate(text1_4), run_time=0.8)
+		# text1_5.scale(MATH_TEXT_SCALE)
+		# text1_5.move_to(START_TEXT)
+		# text1_5.to_edge(LEFT)
+		# text1_5.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_5)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_5))
+		# self.wait(2)
 
-		self.next_section("proyeccionYResta")
-		# dot1 = Dot(point=[10,0,-1])
-		# dot2 = Dot(point=[-10,0,10])
-		direction_w1 = Line(origin, vec_v2.get_end(), color=RED)
+
+		# self.next_section("ResolucionEjercicio.4")
+		# text1_5_2.scale(MATH_TEXT_SCALE)
+		# text1_5_2.next_to(text1_5, DOWN)
+		# text1_5_2.to_edge(LEFT)
+		# text1_5_2.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text1_5_2)
+		# # text1_4.arrange(center=False, aligned_edge=LEFT)
+		# # text1_4.set_alignment(LEFT)
+		# self.play(Write(text1_5_2))
+		# self.wait(2)
+
+		# self.next_section("proyeccionYResta")
+		# # dot1 = Dot(point=[10,0,-1])
+		# # dot2 = Dot(point=[-10,0,10])
+		direction_w1 = Line(origin, vec_v1.get_end(), color=RED)
 		direction_w1.set_length(20)
 		dashed_v2_w1 = DashedLine(vec_v2.get_end(), [-3/2, 0, 3/2])
-		#rightangle_v2_w1 = RightAngle(dashed_v2_w1, direction_w1)
-		vec_v2_minus_w1 = Arrow3D(
-			start=vec_v2.get_end(),
-			end=[-1/2, 1, -1/2],
+		# #rightangle_v2_w1 = RightAngle(dashed_v2_w1, direction_w1)
+		# vec_v2_minus_w1 = Arrow3D(
+		# 	start=[-3/2,0,3/2],
+		# 	end=vec_v2.get_end(),
+		# 	resolution=20,
+		# 	thickness = 0.04,
+		# 	color=PURPLE
+		# )
+		# vec_w2 = Arrow3D(
+		# 	start=origin,
+		# 	end=[-1/2, 1, -1/2],
+		# 	resolution=20,
+		# 	thickness = 0.04,
+		# 	color=PURPLE
+		# 	)
+		# self.play(Create(direction_w1))
+		# self.play(Create(dashed_v2_w1), run_time=2)
+		# #self.play(Create(rightangle_v2_w1))
+
+		# self.next_section("mostrarVectorResta")
+		
+		# self.play(GrowFromPoint(vec_v2_minus_w1, [-3/2,0,3/2]), run_time=2)
+		# self.wait(1)
+		# self.play(Transform(vec_v2_minus_w1, vec_w2), run_time=3)
+		# self.wait(1)
+		# self.play(Uncreate(direction_w1))
+		# self.play(Uncreate(dashed_v2_w1))
+		# #self.play(Uncreate(rightangle_v2_w1))
+		# self.wait(1)
+		# self.play(Indicate(vec_w2))
+		# text_w2.scale(TEXT_SCALE)
+		# text_w2.to_corner(DL)
+		# text_w2.shift(1*UP)
+		# text_w2.set_stroke(width = STROKE_WIDTH)
+		# self.add_fixed_in_frame_mobjects(text_w2)
+		# self.play(Write(text_w2))
+		# self.play(Indicate(text_w2))
+
+
+		self.next_section("ResolucionEjercicio.5")
+		self.play(Uncreate(text1_5), run_time=0.8)
+		self.play(Uncreate(text1_5_2), run_time=0.8)
+		text1_6.scale(MATH_TEXT_SCALE)
+		text1_6.move_to(START_TEXT)
+		text1_6.to_edge(LEFT)
+		text1_6.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text1_6)
+		# text1_4.arrange(center=False, aligned_edge=LEFT)
+		# text1_4.set_alignment(LEFT)
+		self.play(Write(text1_6))
+		self.wait(2)
+
+		self.next_section("ResolucionEjercicio.6")
+		text1_7.scale(MATH_TEXT_SCALE)
+		text1_7.next_to(text1_6, DOWN)
+		text1_7.to_edge(LEFT)
+		text1_7.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text1_7)
+		# text1_4.arrange(center=False, aligned_edge=LEFT)
+		# text1_4.set_alignment(LEFT)
+		self.play(Write(text1_7))
+		self.wait(2)
+
+
+		self.next_section("proyeccionYResta2")
+		# dot1 = Dot(point=[10,0,-1])
+		# dot2 = Dot(point=[-10,0,10])
+		direction_w2 = Line(origin, [-1/2, 1, -1/2], color=PURPLE)
+		direction_w2.set_length(20)
+		dashed_v3_w2 = DashedLine(vec_v3.get_end(), [-1/2, 1, -1/2])
+
+		dashed_v3_w1 = DashedLine(vec_v3.get_end(), [-1/2, 0, 1/2])
+
+		vec_v3_w2 = Arrow3D(
+			start = origin,
+			end = [-1/2, 1, -1/2],
 			resolution=20,
-			thickness = 0.04,
-			color=PURPLE
-		)
-		vec_w2 = Arrow3D(
-			start=origin,
-			end=[-1/2, 1, -1/2],
-			resolution=20,
-			thickness = 0.04,
-			color=PURPLE
+			thickness=0.04,
+			color=YELLOW
 			)
+		vec_v3_w1 = Arrow3D(
+			start = origin,
+			end = [-1/2, 0, 1/2],
+			resolution=20,
+			thickness=0.04,
+			color=YELLOW
+			)
+
+
+		sum_vec_v3_w2_and_v3_w1 = Arrow3D(
+			start = origin,
+			end = [-1,1,0],
+			resolution = 20,
+			thickness = 0.04,
+			color=YELLOW
+			)
+
+
+		vec_v3_minus_w1_w2 = Sphere(center=[0,0,0], radius=0.05, color=PURPLE)
+
 		self.play(Create(direction_w1))
-		self.play(Create(dashed_v2_w1), run_time=2)
+		self.play(Create(direction_w2))
+		self.play(Create(dashed_v3_w1), run_time=2)
+
 		#self.play(Create(rightangle_v2_w1))
 
-		self.next_section("mostrarVectorResta")
-		self.play(Uncreate(direction_w1))
-		self.play(Uncreate(dashed_v2_w1))
+		self.next_section("mostrarVectorResta2")
+		
 		#self.play(Uncreate(rightangle_v2_w1))
 		self.wait(1)
-		self.play(GrowFromPoint(vec_v2_minus_w1, vec_v2.get_end()), run_time=2)
+		self.play(GrowFromPoint(vec_v3_w1, origin), run_time=2)
 		self.wait(1)
-		self.play(Transform(vec_v2_minus_w1, vec_w2), run_time=3)
+
+		self.play(Create(dashed_v3_w2), run_time=2)
+		self.play(GrowFromPoint(vec_v3_w2, origin), run_time=2)
 		self.wait(1)
-		self.play(Indicate(vec_w2))
-		text_w2.scale(TEXT_SCALE)
-		text_w2.to_corner(DL)
-		text_w2.shift(1*UP)
-		text_w2.set_stroke(width = STROKE_WIDTH)
-		self.add_fixed_in_frame_mobjects(text_w2)
-		self.play(Write(text_w2))
-		self.play(Indicate(text_w2))
+
+		self.play(Uncreate(direction_w1))
+		self.play(Uncreate(direction_w2))
+		self.play(Uncreate(dashed_v3_w1))
+		self.play(Uncreate(dashed_v3_w2))
+		self.wait(1)
+
+		self.play(Indicate(vec_v3_w2), Indicate(vec_v3_w1))
+
+		self.play(GrowFromPoint(sum_vec_v3_w2_and_v3_w1, origin), run_time=2)
+		self.wait(1)
+
+		self.play(Indicate(sum_vec_v3_w2_and_v3_w1), Indicate(vec_v3))
+
+		self.play(Transform(sum_vec_v3_w2_and_v3_w1,vec_v3_minus_w1_w2), run_time=4)
 
 
-		# self.next_section("ResolucionEjercicio.5")
-		# self.play(Uncreate(text1_5), run_time=0.8)
-		# self.play(Uncreate(text1_5_2), run_time=0.8)
-		# text1_6.scale(MATH_TEXT_SCALE)
-		# text1_6.move_to(START_TEXT)
-		# text1_6.to_edge(LEFT)
-		# text1_6.set_stroke(width = STROKE_WIDTH)
-		# self.add_fixed_in_frame_mobjects(text1_6)
-		# # text1_4.arrange(center=False, aligned_edge=LEFT)
-		# # text1_4.set_alignment(LEFT)
-		# self.play(Write(text1_6))
-		# self.wait(2)
+		self.wait(1)
 
-		# self.next_section("ResolucionEjercicio.6")
-		# text1_7.scale(MATH_TEXT_SCALE)
-		# text1_7.next_to(text1_6, DOWN)
-		# text1_7.to_edge(LEFT)
-		# text1_7.set_stroke(width = STROKE_WIDTH)
-		# self.add_fixed_in_frame_mobjects(text1_7)
-		# # text1_4.arrange(center=False, aligned_edge=LEFT)
-		# # text1_4.set_alignment(LEFT)
-		# self.play(Write(text1_7))
-		# self.wait(2)
+
+		
+
+		self.play(Indicate(vec_v3_minus_w1_w2))
+		text_w3.scale(TEXT_SCALE)
+		text_w3.to_corner(DL)
+		text_w3.shift(2*UP)
+		text_w3.set_stroke(width = STROKE_WIDTH)
+		self.add_fixed_in_frame_mobjects(text_w3)
+		self.play(Write(text_w3))
+		self.play(Indicate(text_w3))
+
+
+
+
+
+
+
+
 
 		# self.next_section("ResolucionEjercicio.7")
 		# self.play(Uncreate(text1_6), run_time=0.8)
@@ -936,8 +1029,8 @@ class EjemploGramSchmidt(ThreeDScene):
 		self.stop_ambient_camera_rotation()  # Stop camera rotation
 		self.wait(1)
 
-	
 
+	
 class Bibliografia(Scene):
 	def construct(self):
 
