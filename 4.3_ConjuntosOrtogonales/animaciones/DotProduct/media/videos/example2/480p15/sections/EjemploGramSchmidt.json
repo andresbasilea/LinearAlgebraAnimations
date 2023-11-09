@@ -22,9 +22,20 @@
         "nb_frames": "90"
     },
     {
-        "name": "ResolucionEjercicio.1",
+        "name": "MostrarEspacioGenerado",
         "type": "default.normal",
         "video": "EjemploGramSchmidt_0002.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "10.000000",
+        "nb_frames": "150"
+    },
+    {
+        "name": "ResolucionEjercicio.1",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0003.mp4",
         "codec_name": "h264",
         "width": 854,
         "height": 480,
@@ -35,7 +46,7 @@
     {
         "name": "ResolucionEjercicio.2",
         "type": "default.normal",
-        "video": "EjemploGramSchmidt_0003.mp4",
+        "video": "EjemploGramSchmidt_0004.mp4",
         "codec_name": "h264",
         "width": 854,
         "height": 480,
@@ -46,7 +57,7 @@
     {
         "name": "ResolucionEjercicio.3",
         "type": "default.normal",
-        "video": "EjemploGramSchmidt_0004.mp4",
+        "video": "EjemploGramSchmidt_0005.mp4",
         "codec_name": "h264",
         "width": 854,
         "height": 480,
@@ -57,7 +68,7 @@
     {
         "name": "ResolucionEjercicio.4",
         "type": "default.normal",
-        "video": "EjemploGramSchmidt_0005.mp4",
+        "video": "EjemploGramSchmidt_0006.mp4",
         "codec_name": "h264",
         "width": 854,
         "height": 480,
@@ -68,7 +79,40 @@
     {
         "name": "proyeccionYResta",
         "type": "default.normal",
-        "video": "EjemploGramSchmidt_0006.mp4",
+        "video": "EjemploGramSchmidt_0007.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "3.000000",
+        "nb_frames": "45"
+    },
+    {
+        "name": "mostrarVectorResta",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0008.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "14.000000",
+        "nb_frames": "210"
+    },
+    {
+        "name": "ResolucionEjercicio.5",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0009.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "5.600000",
+        "nb_frames": "84"
+    },
+    {
+        "name": "ResolucionEjercicio.6",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0010.mp4",
         "codec_name": "h264",
         "width": 854,
         "height": 480,
@@ -77,14 +121,69 @@
         "nb_frames": "60"
     },
     {
-        "name": "mostrarVectorResta",
+        "name": "proyeccionYResta2",
         "type": "default.normal",
-        "video": "EjemploGramSchmidt_0007.mp4",
+        "video": "EjemploGramSchmidt_0011.mp4",
         "codec_name": "h264",
         "width": 854,
         "height": 480,
         "avg_frame_rate": "15/1",
-        "duration": "16.000000",
-        "nb_frames": "240"
+        "duration": "4.000000",
+        "nb_frames": "60"
+    },
+    {
+        "name": "mostrarVectorResta2",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0012.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "28.000000",
+        "nb_frames": "420"
+    },
+    {
+        "name": "ResolucionEjercicio.7",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0013.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "9.600000",
+        "nb_frames": "144"
+    },
+    {
+        "name": "ResolucionEjercicio.8",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0014.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "11.600000",
+        "nb_frames": "174"
+    },
+    {
+        "name": "ResolucionEjercicio.9",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0015.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "9.600000",
+        "nb_frames": "144"
+    },
+    {
+        "name": "ResolucionEjercicio.10",
+        "type": "default.normal",
+        "video": "EjemploGramSchmidt_0016.mp4",
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "15/1",
+        "duration": "17.600000",
+        "nb_frames": "264"
     }
 ]
