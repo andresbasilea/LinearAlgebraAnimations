@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/media/videos/example/1080p60/partial_movie_files/ThreeDExample/3675264004_104528132_3280589435.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/media/videos/example/1080p60/partial_movie_files/ThreeDExample/840627873_3658444794_420097488.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/media/videos/example/1080p60/partial_movie_files/ThreeDExample/3070304288_3655152415_3199897927.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/media/videos/example/1080p60/partial_movie_files/ThreeDExample/1017248377_275762117_2088186117.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/media/videos/example/1080p60/partial_movie_files/ThreeDExample/961382364_962151160_409097537.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/media/videos/example/1080p60/partial_movie_files/ThreeDExample/961382364_2955911425_1733364843.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/media/videos/example/1080p60/partial_movie_files/ThreeDExample/961382364_2194088947_2988907870.mp4'

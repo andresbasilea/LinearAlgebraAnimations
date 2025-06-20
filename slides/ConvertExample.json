@@ -1,0 +1,165 @@
+{
+  "slides": [
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/0d4aee39b74b90b4f8a5e1fcd0c28b05e202985e98d3f388b6265fde1d66f58f.mp4",
+      "rev_file": "slides/files/ConvertExample/0d4aee39b74b90b4f8a5e1fcd0c28b05e202985e98d3f388b6265fde1d66f58f_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/41b561327c3c9370bdb794e8034f7738ac47d4fa6dcea0150606d9891c4bda72.mp4",
+      "rev_file": "slides/files/ConvertExample/41b561327c3c9370bdb794e8034f7738ac47d4fa6dcea0150606d9891c4bda72_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/b86baa398106b79d87c44ba55bb7bd21a1610bccd24770c9e34b454efbffca45.mp4",
+      "rev_file": "slides/files/ConvertExample/b86baa398106b79d87c44ba55bb7bd21a1610bccd24770c9e34b454efbffca45_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/21996c6b1466b12111b8aeb0115f86b27d1d1e574873371a926e445fa4be0d1a.mp4",
+      "rev_file": "slides/files/ConvertExample/21996c6b1466b12111b8aeb0115f86b27d1d1e574873371a926e445fa4be0d1a_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/5d4fae5fbddaa2d764bd16c99226ccb69943f5fe06a89416fc9ab144a85a1ee0.mp4",
+      "rev_file": "slides/files/ConvertExample/5d4fae5fbddaa2d764bd16c99226ccb69943f5fe06a89416fc9ab144a85a1ee0_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/e337c61166d3591185bfa824b78b847cae88072e0f42157cf6e1eb601e21ec06.mp4",
+      "rev_file": "slides/files/ConvertExample/e337c61166d3591185bfa824b78b847cae88072e0f42157cf6e1eb601e21ec06_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/ade83dd4d30bd119a17490d05eb3425636743cbc54a9be09f2d9281d2c4c37b5.mp4",
+      "rev_file": "slides/files/ConvertExample/ade83dd4d30bd119a17490d05eb3425636743cbc54a9be09f2d9281d2c4c37b5_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": true,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/73a3b7e537c565f768093dd4d72a3afd0096ba77f6445f7e17fab63dd39eedaa.mp4",
+      "rev_file": "slides/files/ConvertExample/73a3b7e537c565f768093dd4d72a3afd0096ba77f6445f7e17fab63dd39eedaa_reversed.mp4"
+    },
+    {
+      "loop": true,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/415266ed9fca8b3d9f1dea83081f68010f02090849d38c2a91701cbfef18bf88.mp4",
+      "rev_file": "slides/files/ConvertExample/415266ed9fca8b3d9f1dea83081f68010f02090849d38c2a91701cbfef18bf88_reversed.mp4"
+    },
+    {
+      "loop": true,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/57521c5a7e7ae5df97ee7d2fa73dd42a30b9e816dabb93cc74093551b2254add.mp4",
+      "rev_file": "slides/files/ConvertExample/57521c5a7e7ae5df97ee7d2fa73dd42a30b9e816dabb93cc74093551b2254add_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/28b8da145e99c68363a02ca32cd4aa1e42907458f4af64109bbbc9639d4ca20a.mp4",
+      "rev_file": "slides/files/ConvertExample/28b8da145e99c68363a02ca32cd4aa1e42907458f4af64109bbbc9639d4ca20a_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/99f56ed4d11595d754724850e06d48e166c0bc21d8092711ebf6a8bc88803e50.mp4",
+      "rev_file": "slides/files/ConvertExample/99f56ed4d11595d754724850e06d48e166c0bc21d8092711ebf6a8bc88803e50_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/ConvertExample/a35cfa2a6983228ead4f6deff4db2e1955bd5f2e460be09b40fddb2b5e00eb6e.mp4",
+      "rev_file": "slides/files/ConvertExample/a35cfa2a6983228ead4f6deff4db2e1955bd5f2e460be09b40fddb2b5e00eb6e_reversed.mp4"
+    }
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "#f1f9f1"
+}
