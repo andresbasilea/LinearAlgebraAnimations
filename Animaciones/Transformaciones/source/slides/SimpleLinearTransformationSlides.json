@@ -33,8 +33,20 @@
       "dedent_notes": true,
       "skip_animations": false,
       "src": null,
-      "file": "slides/files/SimpleLinearTransformationSlides/dcf3a7266da103b3b901586903d3144125c7d3acfa7e7e00314f8657d1c1412d.mp4",
-      "rev_file": "slides/files/SimpleLinearTransformationSlides/dcf3a7266da103b3b901586903d3144125c7d3acfa7e7e00314f8657d1c1412d_reversed.mp4"
+      "file": "slides/files/SimpleLinearTransformationSlides/95fcdb3090b02acfd5b47fa96056334b5665aa31ae8f643415f2598a6a07c9ef.mp4",
+      "rev_file": "slides/files/SimpleLinearTransformationSlides/95fcdb3090b02acfd5b47fa96056334b5665aa31ae8f643415f2598a6a07c9ef_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/SimpleLinearTransformationSlides/cc0a9e8f9b47ac40d0296c4791c92d2bfaa84baab37409f71f7ea820fcb7c0d0.mp4",
+      "rev_file": "slides/files/SimpleLinearTransformationSlides/cc0a9e8f9b47ac40d0296c4791c92d2bfaa84baab37409f71f7ea820fcb7c0d0_reversed.mp4"
     }
   ],
   "resolution": [

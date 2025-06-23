@@ -16,37 +16,37 @@ class CustomColors:
     HIGHLIGHT_BASE = ManimColor("#84b6d5") # Base color from rgba(132, 182, 213, 0.15)
     TEXT_HIGHLIGHT = ManimColor("#0ffbc4")
 
+
 class LinearTransformationSceneSlide(LinearTransformationScene):
     def __init__(self, **kwargs):
         LinearTransformationScene.__init__(
             self,
             show_coordinates=True,
-            leave_ghost_vectors=True,
+            show_basis_vectors=True, # Ensure basis vectors are shown        # Ensure grid is shown
             **kwargs
         )
 
 class LinearTransformationSlide(LinearTransformationSceneSlide, ApplyMatrix):
-    
     pass
 
-class SimpleLinearTransformationSlides(Slide, LinearTransformationSlide): # Changed base class to Slide
-    
+class SimpleLinearTransformationSlides(Slide, LinearTransformationSlide):
     def construct(self):
         """
         Constructs a simple linear transformation animation as a series of slides.
         """
         self.camera.background_color = CustomColors.LIGHT
-        
-        title = Tex("Veamos un ejemplo de transformación lineal en el plano", color=BLACK)
 
-        rectangle = Rectangle(color=BLACK, fill_color=WHITE,fill_opacity=1, width=title.width+1, height=title.height+1)
+        # --- Slide 1: Title Introduction ---
+        title = Tex("Veamos un ejemplo de transformación lineal en el plano", color=BLACK)
+        rectangle = Rectangle(color=BLACK, fill_color=WHITE, fill_opacity=1, width=title.width+1, height=title.height+1)
         rectangle.surround(title)
-        rect_vgroup = VGroup(rectangle,title)
+        rect_vgroup = VGroup(rectangle, title)
         rect_vgroup.move_to([0,3,0])
         self.add(rect_vgroup)
         self.wait()
         self.next_slide()
 
+        # --- Slide 2: Transformation Type Title ---
         transform_title = MarkupText(f'Esta transformación se conoce como <span fgcolor="{CustomColors.TERTIARY}">cizalla</span>', color=BLACK)
         transform_title.move_to([0,3,0])
         self.play(
@@ -55,40 +55,32 @@ class SimpleLinearTransformationSlides(Slide, LinearTransformationSlide): # Chan
         self.wait()
         self.next_slide()
 
-        self.remove(rect_vgroup)
+        # --- Slide 3: Prepare for Transformation ---
+        # We need to transition from the title to the linear transformation view.
+        # This is where the grid and basis vectors should become the main focus.
 
+        # 1. Fade out the title elements
+        self.play(FadeOut(rect_vgroup))
+        self.wait(0.5)
+
+        # 2. Now the grid and basis vectors (which were initialized by LinearTransformationSceneSlide)
+        #    are the primary focus. They should be visible on screen at their default positions.
+        #    The next call to apply_matrix will then animate them FROM these positions.
 
         matrix = [[1, 1], [0, 1]]
+
+        # You might want to show the matrix itself:
+        matrix_mob = Matrix(matrix, h_buff=1.5, v_buff=1.5, element_to_mobject=MathTex, fill_color=WHITE).scale(1.2).set_color(BLACK)
+        matrix_mob.to_corner(UL) # Position it
+        self.play(FadeIn(matrix_mob))
+        self.wait()
+        self.next_slide()
+        # The apply_matrix animation will start from the current (identity) state
+        # of the grid and basis vectors.
         self.apply_matrix(matrix)
         self.wait()
         self.next_slide()
 
-        # # --- Scene Setup: Plane and Basis Vectors ---
-        # # Manually create the NumberPlane as LinearTransformationScene is no longer the base class
-        # plane = NumberPlane(
-        #     x_range=[-5, 5, 1],
-        #     y_range=[-5, 5, 1],
-        #     axis_config={"color": CustomColors.DARK},
-        #     background_line_style={
-        #         "stroke_color": CustomColors.SECONDARY, # Dark blue for grid lines
-        #         "stroke_width": 3,
-        #         "stroke_opacity": 0.6,
-        #     }
-        # ).add_coordinates(font_size=24, color=CustomColors.DARK)
-        # self.next_slide()
+        
 
-        # # Create basis vectors
-        # i_hat = Arrow(ORIGIN, RIGHT, buff=0, color=RED).set_stroke(width=8)
-        # j_hat = Arrow(ORIGIN, UP, buff=0, color=GREEN).set_stroke(width=8)
-        # basis_vectors = VGroup(i_hat, j_hat, NumberPlane())
-
-        # self.add(plane, basis_vectors)
-        # self.next_slide() # Slide 1: Show initial grid and basis vectors
-
-        # # --- Define and Apply Matrix ---
-        # matrix = [[1, 1], [0, 1]] # Shear matrix
-
-        # self.play(ApplyMatrix(matrix, basis_vectors))
-        # self.next_slide()
-        # self.wait()
-
+        
