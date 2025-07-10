@@ -1,0 +1,69 @@
+{
+  "slides": [
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/TwoDVectorSpan/f3a4a4ca9f14aa1eed8b39634f3c0d382055a81286a2a76529a161118aa23342.mp4",
+      "rev_file": "slides/files/TwoDVectorSpan/f3a4a4ca9f14aa1eed8b39634f3c0d382055a81286a2a76529a161118aa23342_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/TwoDVectorSpan/d016f46d0c2dbd03fa4a747db9cab20e0525f68d588def63f2aa05542c9ba050.mp4",
+      "rev_file": "slides/files/TwoDVectorSpan/d016f46d0c2dbd03fa4a747db9cab20e0525f68d588def63f2aa05542c9ba050_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/TwoDVectorSpan/a9766e58edd552f95d0f6bf60876adcd6c7ce15a506338325d11412465afefc4.mp4",
+      "rev_file": "slides/files/TwoDVectorSpan/a9766e58edd552f95d0f6bf60876adcd6c7ce15a506338325d11412465afefc4_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/TwoDVectorSpan/b38b13a65f50c3720071cb507cc9a29620ed1ae7dc8e70537ff72ba5bc9c911d.mp4",
+      "rev_file": "slides/files/TwoDVectorSpan/b38b13a65f50c3720071cb507cc9a29620ed1ae7dc8e70537ff72ba5bc9c911d_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "file": "slides/files/TwoDVectorSpan/45cf0ecbdec2950dffa5b193c73be33a5617742c4497c1e51648894ef75f82a7.mp4",
+      "rev_file": "slides/files/TwoDVectorSpan/45cf0ecbdec2950dffa5b193c73be33a5617742c4497c1e51648894ef75f82a7_reversed.mp4"
+    }
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "white"
+}
