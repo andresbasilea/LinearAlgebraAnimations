@@ -10,7 +10,6 @@ import numpy as np
 class TwoDVectorSpan(Slide):
     def construct(self):
         self.camera.background_color = CustomColors.LIGHT
-        title = Tex("Veamos otro ejemplo de transformación lineal en el plano", color=BLACK)
 
         # Setup the coordinate plane
         plane = NumberPlane(
@@ -28,9 +27,11 @@ class TwoDVectorSpan(Slide):
         self.add(plane)
         self.next_slide()
 
+        v1_coords = np.array([2,1,0])
+        v2_coords = np.array([-1, 2,0])
         # Define two vectors
-        v1 = Vector([2, 1], color=BLUE)
-        v2 = Vector([-1, 2], color=CustomColors.RED)
+        v1 = Vector(v1_coords, color=BLUE)
+        v2 = Vector(v2_coords, color=CustomColors.RED)
 
         # Add labels to the vectors
         v1_label = Tex(r"$\vec{v}$", color=BLUE).next_to(v1.get_end(), UP + RIGHT)
@@ -51,181 +52,279 @@ class TwoDVectorSpan(Slide):
         )
         self.next_slide()
 
-        transform_title = MarkupText(f'Imaginemos que escalamos el vector w, <span fgcolor="{CustomColors.TRANSPARENTRED}">generando una línea</span>', color=BLACK).scale(0.4)
+        transform_title = MarkupText(f'Imaginemos que escalamos el vector w, <span fgcolor="{CustomColors.TRANSPARENTRED}">generando una línea</span>', color=BLACK).scale(0.6)
         transform_title.move_to([0,3,0])
         self.play(
-            Transform(title, transform_title),
+            Write(transform_title),
         )
         self.wait()
         self.next_slide()
 
-        line_path = VGroup()
-        scalar_factors = np.linspace(-3,-3,50)
-        initial_line = Line(ORIGIN, v2.get_end(), color=CustomColors.TRANSPARENTRED, stroke_width=0.8)
-        line_path.add(initial_line)
-        self.add(initial_line)
+        # Create a copy of v2 that will be animated to show scaling
+        current_v2_animated = v2.copy().set_color(CustomColors.TRANSPARENTRED)
 
-        for i in range(1, len(scalar_factors)):
-            next_scaled_end = v2.get_end() * scalar_factors[i]
-            # Create a small segment from the previous point to the current scaled point
-            segment = Line(
-                v2.get_end() * scalar_factors[i-1],
-                next_scaled_end,
-                color=CustomColors.TRANSPARENTRED,
-                stroke_width=0.8
-            )
-            line_path.add(segment)
+        # Attach a TracedPath to the end of the animating vector
+        # The TracedPath will draw the path as the vector scales
+        line_trace = TracedPath(
+            current_v2_animated.get_end,
+            stroke_color=CustomColors.TRANSPARENTRED,
+            stroke_width=0.8 # Make the line a bit thicker
+        )
+        self.add(line_trace) # Add the trace to the scene
 
-            self.play(
-                Transform(v2, Vector(next_scaled_end, color=CustomColors.TRANSPARENTRED)),
-                Create(segment), # Draw the segment
-                run_time=0.9,
-                rate_func=linear
-            )
-        self.wait()
+        # Animate the scaling of the vector from -3 to 3
+        # Start the vector from the origin (scalar factor 0)
+        # This makes the line grow outwards from the center
+        self.play(
+            Transform(current_v2_animated, Vector(v2.get_end() * 0.001, color=CustomColors.TRANSPARENTRED)),
+            run_time=0.1 # Quick snap to origin
+        )
+        
+        # Scale the vector smoothly from the origin to a positive and negative end
+        # We'll animate it growing outwards from the center in two phases
+        self.play(
+            Transform(current_v2_animated, Vector(v2.get_end() * 3, color=CustomColors.TRANSPARENTRED)),
+            run_time=2,
+            rate_func=linear
+        )
+        self.play(
+            Transform(current_v2_animated, Vector(v2.get_end() * -3, color=CustomColors.TRANSPARENTRED)),
+            run_time=2,
+            rate_func=linear
+        )
+        self.play(
+            Transform(current_v2_animated, Vector(v2.get_end() * 0.001, color=CustomColors.TRANSPARENTRED)),
+            run_time=1,
+            rate_func=linear
+        )
+
+        self.wait(0.5)
+        self.next_slide()
+
+        # # After the animation, you might want to replace the TracedPath with a static Line
+        # # for cleaner rendering if the traced path looks jaggy, or just keep it.
+        # # Let's create a final Line object and transform the trace into it.
+        # final_line_span = Line(v2.get_end() * -3, v2.get_end() * 3, color=CustomColors.TRANSPARENTRED, stroke_width=0.7)
+
+        # self.play(
+        #     FadeOut(current_v2_animated), # Remove the animating vector
+        #     Transform(line_trace, final_line_span) # Transform the trace into a clean line
+        # )
+        # self.remove(line_trace) # Remove the old trace object
+        # self.add(final_line_span) # Add the new clean line object
+
+        # --- END OF MODIFIED SECTION ---
+
+        # # Add a label for the span of w
+        span_w_label = Tex("¡La línea sería el espacio generado por $\\vec{w}$!", color=CustomColors.TRANSPARENTRED, font_size=30).next_to(v2, LEFT, buff=0.3)
+        self.play(Write(span_w_label))
+        self.next_slide()
+
+        # # Add an explanation about the span of a single vector
+        explanation_text = Tex(
+            "El espacio generado por un solo vector no nulo en 2D es una línea que pasa por el origen.",
+            color=CustomColors.DARK
+        ).to_edge(DOWN).scale(0.6)
+        self.play(Write(explanation_text))
+        self.next_slide()
+        self.wait(2)
+
+        # # Clean up for the next part of the animation (if any)
+        self.play(
+            FadeOut(current_v2_animated),
+            FadeOut(span_w_label),
+            FadeOut(transform_title),
+            #FadeOut(line_trace),
+            FadeOut(explanation_text),
+            #FadeOut(v2_label), # Fade out the label for w
+            #FadeOut(v2) # Fade out the original w vector
+        )
         self.next_slide()
 
 
 
+        # span del otro vector 
+        # Show w span
+        self.play(
+            FadeIn(v1),
+            FadeIn(v1_label),
+        )
+        self.next_slide()
 
+        transform_title = Tex("Haciendo lo mismo con el vector $\\vec{v}$", color=BLACK).scale(0.6)
+        transform_title.move_to([0,3,0])
+        self.play(
+            Write(transform_title),
+        )
+        self.wait()
+        self.next_slide()
 
-        # # Animate scaling of v2 to show it generates a line
-        # line_path = VGroup()
-        # current_v2 = v2.copy()
-        # current_v2.stroke_width=0.8 # Start with a copy to scale
+        # Create a copy of v2 that will be animated to show scaling
+        current_v1_animated = v1.copy().set_color(BLUE)
 
-        # # Scale v2 by different factors
-        # scalar_factors = np.linspace(-3, 3, 50) # From -3 to 3 to cover the line
+        # Attach a TracedPath to the end of the animating vector
+        # The TracedPath will draw the path as the vector scales
+        line_trace = TracedPath(
+            current_v1_animated.get_end,
+            stroke_color=BLUE,
+            stroke_width=0.8 # Make the line a bit thicker
+        )
+        self.add(line_trace) # Add the trace to the scene
+
+        # Animate the scaling of the vector from -3 to 3
+        # Start the vector from the origin (scalar factor 0)
+        # This makes the line grow outwards from the center
+        self.play(
+            Transform(current_v1_animated, Vector(v1.get_end() * 0.001, color=BLUE)),
+            run_time=0.1 # Quick snap to origin
+        )
         
-        # # Initial segment of the line
-        # initial_line = Line(ORIGIN, current_v2.get_end() * 0, color=CustomColors.TRANSPARENTRED, stroke_width=0.8)
-        # line_path.add(initial_line)
+        # Scale the vector smoothly from the origin to a positive and negative end
+        # We'll animate it growing outwards from the center in two phases
+        self.play(
+            Transform(current_v1_animated, Vector(v1.get_end() * 6, color=BLUE)),
+            run_time=2,
+            rate_func=linear
+        )
+        self.play(
+            Transform(current_v1_animated, Vector(v1.get_end() * -6, color=BLUE)),
+            run_time=2,
+            rate_func=linear
+        )
+        self.play(
+            Transform(current_v1_animated, Vector(v1.get_end() * 0.001, color=BLUE)),
+            run_time=1,
+            rate_func=linear
+        )
 
-        # # Animate scaling and drawing the line
-        # for i in range(1, len(scalar_factors)):
-        #     next_scaled_end = v2.get_end() * scalar_factors[i]
-        #     # Create a small segment from the previous point to the current scaled point
-        #     segment = Line(
-        #         v2.get_end() * scalar_factors[i-1],
-        #         next_scaled_end,
-        #         color=CustomColors.TRANSPARENTRED,
-        #         stroke_width=0.8
-        #     )
-        #     line_path.add(segment)
+        self.wait(0.5)
+        self.next_slide()
 
-        #     self.play(
-        #         Transform(current_v2, Vector(next_scaled_end, color=CustomColors.TRANSPARENTRED)),
-        #         Create(segment), # Draw the segment
-        #         run_time=0.5,
-        #         rate_func=linear
-        #     )
-        # self.wait()
+
+
+        # # --- Placeholder for the rest of your original script ---
+        # # This is where the code for showing the span of two vectors would resume.
+        # Re-introduce v1 and v2 for the next part (span of two vectors)
+        # self.play(FadeIn(v1), FadeIn(v1_label), FadeIn(v2), FadeIn(v2_label))
         # self.next_slide()
+
+
+
+
+
+
+
+        self.play(
+            FadeOut(transform_title),
+        )
+        self.next_slide()
+
+
+
+        title_two_vectors = Tex("Y ahora, haciendo una combinación lineal: $a\\vec{v} + b\\vec{w}$", color=CustomColors.DARK).to_edge(UP).scale(0.7)
+        self.play(Write(title_two_vectors)) # Write the title on the screen
+        self.next_slide() # Advance to the next slide/step
+
+        # Define different scalar pairs for linear combinations
+        scalars = [(1.5, 0.5), (0.7, 1.3), (-1, -0.8), (2, -0.5)]
         
-        # # Keep the full line generated
-        # self.remove(current_v2) # Remove the animating vector
-        # self.add(line_path) # Add the full line as a single mobject or VGroup
+        # Store a reference to the original vector objects to reset them later
+        # We need to ensure that 'v1' and 'v2' are the Mobjects that will be transformed.
+        # We will use their original coordinate values for calculations.
+        
+        for a, b in scalars:
+            # 1. Create the scaled version of vector v1, starting from the origin.
+            # This is a new Mobject that 'v1' will transform into.
+            scaled_v1_target = Vector(v1_coords * a, color=BLUE)
 
-        # # Label the span of v2
-        # span_v2_label = Tex("Span($\\vec{w}$)", color=CustomColors.RED).next_to(line_path, UP + LEFT, buff=0.5)
-        # self.play(
-        #     FadeOut(scale_text),
-        #     Write(span_v2_label)
-        # )
-        # self.next_slide()
+            # 2. Create the scaled version of vector v2, starting from the origin.
+            # This is a new Mobject that 'v2' will transform into.
+            scaled_v2_target = Vector(v2_coords * b, color=CustomColors.RED)
 
-        # # Explain that it's a line
-        # explanation = Tex("The span of a single non-zero vector in 2D is a line passing through the origin.").to_edge(DOWN)
-        # self.play(Write(explanation))
-        # self.next_slide()
+            # Animate the scaling of both original vectors (v1 and v2)
+            # They transform into their scaled versions, both originating from (0,0).
+            self.play(
+                FadeOut(v1_label), # Fade out the original labels
+                FadeOut(v2_label),
+                Transform(v1, scaled_v1_target), # v1 becomes scaled_v1_target
+                Transform(v2, scaled_v2_target),  # v2 becomes scaled_v2_target
+                run_time=1.0 # Shorter run time for this step
+            )
+            self.next_slide() # Advance to the next slide/step
 
-        # # Clean up before next segment if any
-        # self.play(
-        #     FadeOut(line_path),
-        #     FadeOut(v2), # v2 might still be there if current_v2 was a transform of it
-        #     FadeOut(v2_label),
-        #     FadeOut(span_v2_label),
-        #     FadeOut(explanation)
-        # )
-        # self.next_slide()
+            # 3. Animate the shifting of the scaled v2.
+            # The current 'v2' (which is now scaled_v2_target) moves so its tail
+            # is at the head of the current 'v1' (which is scaled_v1_target).
+            self.play(
+                v2.animate.shift(v1.get_end()), # Shift v2 by the end point of v1
+                run_time=1.0 # Shorter run time for this step
+            )
+            self.next_slide() # Advance to the next slide/step
 
-
-
-
-        # # Explain linear combination
-        # title = Tex("Linear Combination: $a\\vec{v} + b\\vec{w}$").to_edge(UP)
-        # self.play(Write(title))
-        # self.next_slide()
-
-        # # Show a few linear combinations
-        # scalars = [(1.5, 0.5), (0.7, 1.3), (-1, -0.8), (2, -0.5)]
-        # sum_vectors = VGroup()
-
-        # for a, b in scalars:
-        #     scaled_v1 = v1.copy().scale(a)
-        #     scaled_v2 = v2.copy().scale(b)
+            # 4. Create the resultant vector from the origin to the end of the shifted v2.
+            resultant_vector = Vector(v2.get_end(), color=CustomColors.DOTS)
+            self.play(Create(resultant_vector)) # Animate the creation of the resultant vector
+            self.next_slide() # Advance to the next slide/step
             
-        #     # Move scaled_v2 to the end of scaled_v1 for vector addition visualization
-        #     shifted_scaled_v2 = scaled_v2.copy().shift(scaled_v1.get_end())
+            # 5. Fade out the current linear combination and bring back original vectors/labels.
+            # We use .become() to reset the Mobject 'v1' and 'v2' to their original state
+            # before fading them in for the next iteration.
+            self.play(
+                FadeOut(v1), # Fade out the scaled v1
+                FadeOut(v2), # Fade out the shifted scaled v2
+                FadeOut(resultant_vector), # Fade out the resultant vector
+                FadeIn(v1.become(Vector(np.array(v1_coords), color=BLUE))), # Reset v1 to original and fade in
+                FadeIn(v2.become(Vector(np.array(v2_coords), color=CustomColors.RED))),   # Reset v2 to original and fade in
+                FadeIn(v1_label), # Fade in original labels
+                FadeIn(v2_label),
+
+                run_time=0.5 # Quick fade out/in
+            )
+            self.next_slide() # Advance to the next slide/step
+
             
-        #     # The resultant vector
-        #     resultant_vector = Vector(shifted_scaled_v2.get_end(), color=YELLOW)
 
-        #     self.play(
-        #         Transform(v1, scaled_v1),
-        #         Transform(v2, shifted_scaled_v2),
-        #         FadeOut(v1_label), # Fade out labels during transformation
-        #         FadeOut(v2_label),
-        #         run_time=1.5
-        #     )
-        #     self.next_slide()
-        #     self.play(Create(resultant_vector))
-        #     sum_vectors.add(resultant_vector.copy()) # Keep a copy of the sum vector
-        #     self.next_slide()
-        #     self.play(
-        #         FadeOut(scaled_v1),
-        #         FadeOut(shifted_scaled_v2),
-        #         FadeOut(resultant_vector),
-        #         FadeIn(v1), # Bring back original vectors
-        #         FadeIn(v2),
-        #         FadeIn(v1_label), # Bring back labels
-        #         FadeIn(v2_label),
-        #         run_time=0.5
-        #     )
-        #     self.next_slide()
+        self.play(FadeOut(title_two_vectors)) # Fade out the linear combination title
+        self.next_slide() # Advance to the next slide/step
 
-        # self.play(FadeOut(title))
-        # self.next_slide()
+        # --- Span Section ---
+        # Define the concept of span
+        span_text = Tex("El espacio generado por dos vectores $\\vec{v} \, , \\vec{w}$ es el conjunto de todas las posibles combinaciones lineales de esos dos vectores", color=CustomColors.DARK).to_edge(UP).scale(0.7)
+        self.play(Write(span_text)) # Write the span definition
+        self.next_slide() # Advance to the next slide/step
 
-        # # Define the concept of span
-        # span_text = Tex("The span of two vectors is the set of all their linear combinations.").to_edge(UP)
-        # self.play(Write(span_text))
-        # self.next_slide()
+        # Show the span filling the plane
+        dots = VGroup() # Create a VGroup to hold all the dots
+        
+        # Ensure v1 and v2 are back to their original state for span calculation
+        # It's safer to use the original coordinate arrays for span calculation
+        # to avoid any lingering transformations on the Mobjects.
+        
+        # Generate a grid of points that represent various linear combinations
+        for i in range(-20, 20):
+            for j in range(-20, 20):
+                a_val = i * 0.2 # Scalar 'a'
+                b_val = j * 0.2 # Scalar 'b'
+                
+                # Ensure v1_coords and v2_coords are consistently 1D numpy arrays for calculations
+                # This defends against potential shape issues if they somehow became 2D arrays (e.g., [[x,y,z]])
+                v1_coords_calc = np.asarray(v1_coords).squeeze()
+                v2_coords_calc = np.asarray(v2_coords).squeeze()
 
-        # # Show the span filling the plane
-        # # Create a large number of dots representing the end points of many linear combinations
-        # # This creates the visual effect of filling the plane
-        # dots = VGroup()
-        # for i in range(-20, 20):
-        #     for j in range(-20, 20):
-        #         a = i * 0.2
-        #         b = j * 0.2
-        #         point = v1.get_end() * a + v2.get_end() * b
-        #         dots.add(Dot(point, radius=0.05, color=YELLOW))
+                # Calculate the point as a linear combination of the original vector coordinates
+                point = v1_coords_calc * a_val + v2_coords_calc * b_val
+                dots.add(Dot(point, radius=0.05, color=CustomColors.DOTS))
+        # Animate the creation of the dots to show the span
+        self.play(
+            FadeOut(span_text), # Fade out the span definition text
+            Create(dots, run_time=5, lag_ratio=0.01) # Create dots with a slight delay between them
+        )
+        self.next_slide() # Advance to the next slide/step
+        self.wait(2) # Wait for 2 seconds
 
-        # self.play(
-        #     FadeOut(v1),
-        #     FadeOut(v2),
-        #     FadeOut(v1_label),
-        #     FadeOut(v2_label),
-        #     FadeOut(sum_vectors), # Remove previous sum vectors
-        #     Create(dots, run_time=5, lag_ratio=0.01) # Animate dots appearing
-        # )
-        # self.next_slide()
-        # self.wait(2)
+        # Conclude the scene
+        conclusion = Tex("Para dos vectores linealmente independientes en 2D, el espacio generado es todo el plano en 2D.", color=CustomColors.DARK).to_edge(DOWN).scale(0.7)
+        self.play(Write(conclusion)) # Write the conclusion
+        self.next_slide() # Advance to the next slide/step
+        self.wait(2) # Wait for 2 seconds
 
-        # # Conclude
-        # conclusion = Tex("For two non-parallel vectors in 2D, their span is the entire 2D plane.").to_edge(DOWN)
-        # self.play(Write(conclusion))
-        # self.next_slide()
-        # self.wait(2)
