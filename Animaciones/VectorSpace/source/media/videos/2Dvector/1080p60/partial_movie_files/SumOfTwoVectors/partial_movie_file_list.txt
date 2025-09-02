@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/Animaciones/VectorSpace/source/media/videos/2Dvector/1080p60/partial_movie_files/SumOfTwoVectors/2621265332_2275437565_1224529154.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/Animaciones/VectorSpace/source/media/videos/2Dvector/1080p60/partial_movie_files/SumOfTwoVectors/4272032393_2736658959_15104713.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/Animaciones/VectorSpace/source/media/videos/2Dvector/1080p60/partial_movie_files/SumOfTwoVectors/4272032393_3102497647_1493433398.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/Animaciones/VectorSpace/source/media/videos/2Dvector/1080p60/partial_movie_files/SumOfTwoVectors/4272032393_2018247994_3771774985.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/Animaciones/VectorSpace/source/media/videos/2Dvector/1080p60/partial_movie_files/SumOfTwoVectors/4272032393_4140822277_3173506171.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/Animaciones/VectorSpace/source/media/videos/2Dvector/1080p60/partial_movie_files/SumOfTwoVectors/4272032393_3399092417_611900435.mp4'
+file 'file:/Users/andres/Documents/LinearAlgebra/AnimationsClass/LinearAlgebraAnimations/Animaciones/VectorSpace/source/media/videos/2Dvector/1080p60/partial_movie_files/SumOfTwoVectors/4272032393_1436906429_1014466491.mp4'
